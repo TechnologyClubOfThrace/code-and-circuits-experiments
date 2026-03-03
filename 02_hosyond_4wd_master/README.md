@@ -1,30 +1,49 @@
-# 02 - Hosyond 4WD Smart Robot Car Kit — MASTER v2.5 (Teacher Edition)
+# 02 - Hosyond 4WD Smart Robot Car Kit — MASTER v2.6 (Teacher Edition)
 
-Ένα εκπαιδευτικό project για Arduino 4WD robot car με 3 βασικές λειτουργίες:
+Ένα ολοκληρωμένο εκπαιδευτικό project για Arduino 4WD robot car, σχεδιασμένο για εργαστήριο ρομποτικής και μαθήματα τεχνολογίας.
+
+Η έκδοση **v2.6** περιλαμβάνει τρεις σταθερές και δοκιμασμένες λειτουργίες:
+
 - **MANUAL** (IR Remote + Bluetooth + Serial)
-- **LINE TRACKING** (3 αισθητήρες γραμμής)
-- **OBSTACLE AVOIDANCE** (Ultrasonic + Servo) με **fail-safe** ώστε να μη “φεύγει στα τυφλά”.
+- **LINE TRACKING** (3 αισθητήρες γραμμής με TRIM ευθυγράμμισης)
+- **OBSTACLE AVOIDANCE** (Ultrasonic + Servo) με ενσωματωμένο **fail-safe μηχανισμό ασφαλείας**
+
+---
 
 <p align="center">
   <img src="Hosyond_4WD_Smart_Robot_Car_Kit.JPG" alt="Hosyond 4WD Robot"><br>
   <em>Ολοκλήρωση της κατασκευής στον Σύλλογο Τεχνολογίας Θράκης</em><br>
-  <em>Ομάδα Κατασκευής: Κώστας Λ., Γιάννης Γ., Άρης Τ., Δημήτρης Κ. </em>
+  <em>Ομάδα Κατασκευής: Κώστας Λ., Γιάννης Γ., Άρης Τ., Δημήτρης Κ.</em>
 </p>
 
 ---
 
-## 1) Απαιτήσεις
-- Arduino UNO / συμβατό
-- L298N Motor Driver
-- 3x Line tracking sensors (L/M/R)
-- Ultrasonic sensor (HC-SR04 ή παρόμοιο)
-- Servo (SG90)
-- IR receiver + IR remote
-- (Προαιρετικά) HC-05 / HC-06 Bluetooth module
+## 1) Παιδαγωγική φιλοσοφία
+
+Το project έχει σχεδιαστεί με:
+
+- Λογική **State Machine** (κάθε mode είναι ξεχωριστή κατάσταση λειτουργίας)
+- **Non-blocking προγραμματισμό** (δεν “παγώνει” ο κώδικας σε delay/while)
+- Ενσωματωμένους **μηχανισμούς ασφαλείας (fail-safe)**
+- Συμβατότητα με την επίσημη εφαρμογή Hosyond
+
+Στόχος είναι η σταθερή, προβλέψιμη και ασφαλής λειτουργία μέσα σε σχολικό εργαστήριο.
 
 ---
 
-## 2) Pinout (όπως υλοποιήθηκε στην τρέχουσα έκδοση του κώδικα)
+## 2) Απαιτήσεις Υλικού
+
+- Arduino UNO (ή συμβατό)
+- L298N Motor Driver
+- 3 αισθητήρες γραμμής (L/M/R)
+- Ultrasonic sensor (HC-SR04 ή παρόμοιο)
+- Servo (SG90)
+- IR receiver + IR remote
+- Bluetooth module HC-05 / HC-06
+
+---
+
+## 3) Pinout (σύμφωνα με τον κώδικα v2.6)
 
 ### L298N
 - LB = D2
@@ -35,115 +54,178 @@
 - RPWM = D6
 
 ### Line Sensors
-- L = D9
-- M = D10
+- L = D9  
+- M = D10  
 - R = D11  
-> Οι είσοδοι είναι `INPUT_PULLUP`. Αν οι αισθητήρες σου “διαβάζουν ανάποδα”, άλλαξε στο sketch:
-`#define LINE_ACTIVE_LOW 1`
 
-### Ultrasonic
-- TRIG = A0
+Οι είσοδοι είναι `INPUT_PULLUP`.
+
+Αν οι αισθητήρες διαβάζουν αντίστροφα, τροποποίησε στο sketch:
+
+## Ultrasonic
+
+- TRIG = A0  
 - ECHO = A1  
-> Αν TRIG/ECHO είναι ανάποδα → το πρόγραμμα θα βλέπει `999cm` και θα ενεργοποιεί FAIL-SAFE.
 
-### Servo
-- SERVO = D3
-
-### IR Receiver
-- IR = D12
-
-### Bluetooth (HC-05/HC-06)
-- BT RX (Arduino) = A2  (Arduino RX <- BT TX)
-- BT TX (Arduino) = A3  (Arduino TX -> BT RX)  
-> Το **BT RX** θέλει **διαιρέτη τάσης** (5V -> ~3.3V).
+Αν τα καλώδια είναι ανάποδα, το σύστημα θα βλέπει `999cm` και θα ενεργοποιεί τον μηχανισμό ασφαλείας.
 
 ---
 
-## 3) Εντολές
+## Servo
 
-### Serial / Bluetooth (9600 baud)
-Modes:
-- `S` = STOP
-- `M` = MANUAL
-- `T` = LINE
-- `O` = AVOID
-
-Manual (μόνο σε MANUAL):
-- `U` = forward
-- `D` = backward
-- `L` = left
-- `R` = right
-- `X` = stop motors
-
-Help:
-- `H` = εμφανίζει οδηγίες (Serial)
-
-<p align="center">
-  <img src="Hosyond_4WD_Smart_Robot_Car_Kit_2.JPG" alt="Hosyond 4WD Robot"><br>
-  <em>Serial Monitor του Arduino IDE με #define VERBOSE 1</em>
-</p>
-
-### IR Remote (NEC cmd mapping)
-Movement:
-- UP / DOWN / LEFT / RIGHT
-- OK = STOP (panic)
-
-Modes:
-- `1` = MANUAL
-- `2` = LINE
-- `3` = AVOID
-- `0` = STOP
-
-Speed (MANUAL speed):
-- `*` = speed down
-- `#` = speed up
-
-TRIM (ευθυγράμμιση ευθείας στη γραμμή):
-- `4` = TRIM -
-- `6` = TRIM +
-- `5` = TRIM reset (0)
-
-> Repeat-safe: αν κρατάς πατημένο βελάκι, τα repeats επηρεάζουν μόνο την κίνηση (όχι mode/speed/trim).
+- SERVO = D3  
 
 ---
 
-## 4) TRIM ευθείας
-Αν στο LINE mode το ρομπότ “τραβάει” λίγο δεξιά/αριστερά (μηχανικές ανοχές):
+## IR Receiver
 
-1. Πάτα `2` (LINE)
-2. Άφησέ το να κινηθεί 1–2 μέτρα στη γραμμή
-3. Αν τραβά **δεξιά** → πάτα `6` (TRIM +)
-4. Αν τραβά **αριστερά** → πάτα `4` (TRIM -)
-5. Αν μπερδευτείς → πάτα `5` (reset TRIM)
+- IR = D12  
 
 ---
 
-## 5) AVOID fail-safe (για ασφάλεια)
-Το AVOID mode περιλαμβάνει ασφάλεια:
-- Αν ο ultrasonic δίνει πολλές άκυρες μετρήσεις (π.χ. timeout/999cm),
-  το ρομπότ **σταματά** και κάνει retry μετά από λίγο.
+## Bluetooth (HC-05 / HC-06)
 
-Αυτό προστατεύει από “runaway” όταν υπάρχει πρόβλημα σε αισθητήρα/καλωδίωση/τροφοδοσία.
+- BT RX (Arduino) = A2  (Arduino RX ← BT TX)  
+- BT TX (Arduino) = A3  (Arduino TX → BT RX)  
 
----
-
-## 6) Σημαντικές οδηγίες τροφοδοσίας (σταθερή λειτουργία)
-- Ιδανικά ο **servo** να τροφοδοτείται από **ξεχωριστά σταθερά 5V** (step-down ή power bank)
-- **Κοινή γείωση (GND)** μεταξύ Arduino / L298N / servo / αισθητήρων.
-- Αν παρατηρείς resets ή “τρελά” sonar readings, το 90% είναι θέμα τροφοδοσίας/πτωσης τάσης.
+⚠ Το BT RX χρειάζεται διαιρέτη τάσης (5V → ~3.3V).
 
 ---
 
-## 7) Upload tips
-- Κατά το upload στο Arduino IDE, **αφαίρεσε προσωρινά το Bluetooth module** (σε αρκετές συνδεσμολογίες επηρεάζει το Serial/Upload).
-- Μετά το upload, ξανασύνδεσε το BT.
+# 4) Λειτουργίες (Modes)
+
+## STOP
+
+Ασφαλής κατάσταση. Τα μοτέρ είναι απενεργοποιημένα.
+
+### Ενεργοποίηση:
+
+- IR: `0` ή `OK`  
+- Bluetooth / Serial: `S`  
 
 ---
 
-## 8) Γρήγορο troubleshooting
-- **LINE δεν ακολουθεί** → άλλαξε `LINE_ACTIVE_LOW` ή έλεγξε τη θέση των αισθητήρων πάνω στη γραμμή.
-- **Τραβάει προς μία πλευρά** → χρησιμοποίησε TRIM (4/6).
+## MANUAL (IR + Bluetooth + Serial)
+
+Το ρομπότ κινείται μόνο όταν λαμβάνει εντολή.
+
+### Bluetooth / Serial (9600 baud)
+
+### Modes:
+
+- `S` = STOP  
+- `M` = MANUAL  
+- `T` = LINE  
+- `O` = AVOID  
+
+### Κίνηση (μόνο σε MANUAL):
+
+- `U` = forward  
+- `D` = backward  
+- `L` = left  
+- `R` = right  
+
+Αν δεν ληφθεί εντολή για ~1.2 δευτερόλεπτα, τα μοτέρ σταματούν αυτόματα.
+
+---
+
+## LINE TRACKING
+
+Χρησιμοποιεί τρεις αισθητήρες (L/M/R).
+
+### Λογική λειτουργίας:
+
+- Μόνο ο μεσαίος βλέπει γραμμή → ευθεία  
+- Δεξιός βλέπει γραμμή → διόρθωση δεξιά  
+- Αριστερός βλέπει γραμμή → διόρθωση αριστερά  
+- Κανένας δεν βλέπει γραμμή → STOP  
+
+### TRIM ευθείας
+
+Αν το ρομπότ τραβά ελαφρώς:
+
+- `4` = TRIM -  
+- `6` = TRIM +  
+- `5` = Reset TRIM  
+
+---
+
+## OBSTACLE AVOIDANCE (με fail-safe)
+
+### Συμπεριφορά:
+
+1. Κίνηση μπροστά  
+2. Αν εντοπιστεί εμπόδιο:  
+   - STOP  
+   - Οπισθοχώρηση  
+   - Έλεγχος αριστερά  
+   - Έλεγχος δεξιά  
+   - Στροφή προς τη μεριά με περισσότερο χώρο  
+
+### Μηχανισμός ασφαλείας
+
+Αν ο ultrasonic δίνει συνεχόμενες άκυρες μετρήσεις:  
+→ Το ρομπότ σταματά και επιχειρεί επανεκκίνηση της διαδικασίας.
+
+Προστατεύει από:
+
+- Λανθασμένη καλωδίωση  
+- Πτώση τάσης  
+- Ασταθή τροφοδοσία  
+
+---
+
+# 5) IR Remote Mapping
+
+### Movement:
+
+- UP / DOWN / LEFT / RIGHT  
+- OK = STOP  
+
+### Modes:
+
+- `1` = MANUAL  
+- `2` = LINE  
+- `3` = AVOID  
+- `0` = STOP  
+
+### Speed:
+
+- `*` = speed down  
+- `#` = speed up  
+
+### TRIM:
+
+- `4` = TRIM -  
+- `6` = TRIM +  
+- `5` = TRIM reset  
+
+Τα IR repeats επηρεάζουν μόνο την κίνηση.
+
+---
+
+# 6) Οδηγίες Τροφοδοσίας
+
+- Ιδανικά ο servo να τροφοδοτείται από ξεχωριστή σταθερή πηγή 5V  
+- Όλα τα GND να είναι κοινά  
+- Τα περισσότερα προβλήματα προέρχονται από πτώση τάσης  
+
+---
+
+# 7) Upload Tips
+
+- Κατά το upload, αφαιρέστε προσωρινά το Bluetooth module  
+- Μετά το upload, επανασυνδέστε το BT  
+
+---
+
+# 8) Έκδοση
+
+Τρέχουσα έκδοση: **v2.6 (Teacher Edition)**  
+Σταθερή και δοκιμασμένη σε εργαστηριακό περιβάλλον.
+
 ---
 
 ## License
-Για εκπαιδευτική χρήση (MIT).
+
+MIT License — Εκπαιδευτική χρήση
