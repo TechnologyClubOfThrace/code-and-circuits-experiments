@@ -1,4 +1,4 @@
-# 02 - Hosyond 4WD Smart Robot Car Kit — MASTER v2.6 (Teacher Edition)
+# 02 - Hosyond 4WD Smart Robot Car Kit — MASTER v2.6
 
 Ένα ολοκληρωμένο εκπαιδευτικό project για Arduino 4WD robot car, σχεδιασμένο για εργαστήριο ρομποτικής και μαθήματα τεχνολογίας.
 
