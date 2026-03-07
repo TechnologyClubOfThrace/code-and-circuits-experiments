@@ -1,7 +1,7 @@
 /*
   ==========================================================
   Hosyond 4WD Smart Robot Car Kit
-  MASTER v2.5 — Teacher Edition (Compact + Safe)
+  MASTER v2.7 — Teacher Edition (Compact + Safe)
   ==========================================================
 
   Author: Δημήτρης Κανατάς
@@ -419,7 +419,7 @@ static inline void scoreValleys() {
 
 static inline void printHelp() {
 #if VERBOSE
-  Serial.println(F("\n=== HOSYOND MASTER v2.6 (NO FOLLOW) HELP ==="));
+  Serial.println(F("\n=== HOSYOND MASTER v2.7 (NO FOLLOW) HELP ==="));
   Serial.println(F("Modes: S=STOP, M=MANUAL, T=LINE, O=AVOID"));
   Serial.println(F("Manual moves (MANUAL): U/D/L/R/S (Hosyond App compatible)"));
   Serial.println(F("Help: H"));
@@ -944,7 +944,7 @@ void setup() {
   enterMode(Mode::STOP);
 
 #if VERBOSE
-  LOGLN(F("HOSYOND MASTER v2.6 READY (NO FOLLOW)"));
+  LOGLN(F("HOSYOND MASTER v2.7 READY (NO FOLLOW)"));
   LOGLN(F("Enhanced Navigation with Full Scan + Valley Detect"));
   printHelp();
   logTrimSpeed();

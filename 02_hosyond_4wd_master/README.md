@@ -1,4 +1,4 @@
-# 02 - Hosyond 4WD Smart Robot Car Kit — MASTER v2.6
+# 02 - Hosyond 4WD Smart Robot Car Kit — MASTER v2.7
 
 Εκπαιδευτικό “όλα-σε-ένα” sketch για 4WD Arduino car με ασφαλή state-machine λογική και 3 modes:
 
@@ -8,9 +8,9 @@
 
 ---
 
-## 1) Τι νέο υπάρχει στη v2.6
+## 1) Τι νέο υπάρχει στη v2.7
 
-Η v2.6 κρατά τη σταθερή συμπεριφορά της Teacher Edition και προσθέτει ενισχυμένη πλοήγηση στην αποφυγή εμποδίων:
+Η v2.7 κρατά τη σταθερή συμπεριφορά της Teacher Edition και προσθέτει ενισχυμένη πλοήγηση στην αποφυγή εμποδίων:
 
 - Νέες καταστάσεις στο `AvoidState`:
   - `FULL_SCAN_START`
@@ -125,7 +125,7 @@
 
 ## 7) Έκδοση
 
-- Sketch: **MASTER v2.6 (Teacher Edition, NO FOLLOW)**
+- Sketch: **MASTER v2.7 (Teacher Edition, NO FOLLOW)**
 - Έμφαση σε εκπαιδευτική καθαρότητα, ασφάλεια και επεκτασιμότητα.
 
 ## License
