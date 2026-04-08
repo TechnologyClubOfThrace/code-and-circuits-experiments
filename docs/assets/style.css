@@ -121,10 +121,10 @@ img {
 
 .hero h1 {
   font-family: "Space Grotesk", "Manrope", sans-serif;
-  font-size: clamp(32px, 5.2vw, 52px);
+  font-size: clamp(30px, 4.2vw, 46px);
   line-height: 0.98;
   letter-spacing: -0.04em;
-  max-width: 10ch;
+  max-width: 16ch;
   margin: 0 0 18px;
 }
 
