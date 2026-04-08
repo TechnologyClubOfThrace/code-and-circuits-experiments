@@ -1,0 +1,16 @@
+Backup/
+
+# Common archive files for local backups/exports
+*.zip
+*.7z
+*.rar
+
+# Arduino build artifacts
+*.hex
+*.elf
+*.bin
+*.map
+
+# Editor / OS noise
+.DS_Store
+Thumbs.db
