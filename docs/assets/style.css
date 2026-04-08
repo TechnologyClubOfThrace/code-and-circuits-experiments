@@ -124,7 +124,8 @@ img {
   font-size: clamp(30px, 4.2vw, 46px);
   line-height: 0.98;
   letter-spacing: -0.04em;
-  max-width: 16ch;
+  max-width: none;
+  white-space: nowrap;
   margin: 0 0 18px;
 }
 
@@ -591,6 +592,7 @@ footer {
 
   .hero h1 {
     max-width: 100%;
+    white-space: normal;
   }
 
   .page-header {
