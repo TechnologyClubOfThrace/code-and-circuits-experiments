@@ -551,6 +551,11 @@ code {
   font-size: 0.95em;
 }
 
+.page-oled code {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
 footer {
   padding: 26px 0 48px;
   color: var(--muted);
@@ -621,5 +626,9 @@ footer {
 
   .page-actions {
     flex-direction: column;
+  }
+
+  .page-oled .photo-gallery {
+    grid-template-columns: 1fr;
   }
 }
