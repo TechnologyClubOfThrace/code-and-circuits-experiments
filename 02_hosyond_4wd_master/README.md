@@ -1,133 +1,200 @@
-# 02 - Hosyond 4WD Smart Robot Car Kit — MASTER v2.7
+# 02 — Hosyond 4WD Smart Robot Car Kit  
+## MASTER v2.7 (Teacher Edition)
 
-Εκπαιδευτικό “όλα-σε-ένα” sketch για 4WD Arduino car με ασφαλή state-machine λογική και 3 modes:
-
-- **MANUAL** (IR + Bluetooth + Serial)
-- **LINE TRACKING** (3 sensors)
-- **OBSTACLE AVOIDANCE** (Ultrasonic + Servo) με **fail-safe** και **Full Scan + Valley Detection**
+📁 Φάκελος: `02_hosyond_4wd_master/`
 
 ---
 
-## 1) Τι νέο υπάρχει στη v2.7
+## Α. Προεπισκόπηση
 
-Η v2.7 κρατά τη σταθερή συμπεριφορά της Teacher Edition και προσθέτει ενισχυμένη πλοήγηση στην αποφυγή εμποδίων:
+<p align="center">
+  <img src="images/preview.jpg" alt="Hosyond 4WD Robot"><br>
+  <em>Ολοκληρωμένη κατασκευή σε εργαστήριο ρομποτικής</em>
+  <em>Ολοκλήρωση της κατασκευής στον Σύλλογο Τεχνολογίας Θράκης</em><br>
+  <em>Ομάδα Κατασκευής: Κώστας Λ., Γιάννης Γ., Άρης Τ., Δημήτρης Κ.</em>
+</p>
 
-- Νέες καταστάσεις στο `AvoidState`:
-  - `FULL_SCAN_START`
-  - `FULL_SCAN_IN_PROGRESS`
-  - `FULL_SCAN_EVALUATE`
-  - `FULL_SCAN_TURN_TO_VALLEY`
-  - `STRESS`
-- Σάρωση 180° με servo (`performFullScan()`)
-- Ανίχνευση “κοιλάδων”/διαδρόμων (`detectValleys()`)
-- Βαθμολόγηση κοιλάδων (`scoreValleys()`) με βάρη:
-  - πλάτος
-  - βάθος
-  - ποινή μεγάλης στροφής
-- Anti-stuck λογική:
+---
+
+## Β. Περιγραφή
+
+Ένα ολοκληρωμένο εκπαιδευτικό project για Arduino 4WD robot car, σχεδιασμένο για σχολικά εργαστήρια και μαθήματα τεχνολογίας.
+
+Το project βασίζεται σε **state machine λογική**, υποστηρίζει πολλαπλά modes λειτουργίας και ενσωματώνει μηχανισμούς ασφαλείας (fail-safe), ώστε να λειτουργεί αξιόπιστα σε πραγματικές συνθήκες τάξης.
+
+---
+
+## Γ. Λειτουργίες (Modes)
+
+- **MANUAL**  
+  Έλεγχος μέσω IR Remote, Bluetooth ή Serial
+
+- **LINE TRACKING**  
+  Παρακολούθηση γραμμής με 3 αισθητήρες
+
+- **OBSTACLE AVOIDANCE**  
+  Αποφυγή εμποδίων με ultrasonic + servo
+
+---
+
+## Τι νέο υπάρχει στη v2.7
+
+Η έκδοση v2.7 επεκτείνει το σύστημα αποφυγής εμποδίων:
+
+- Full scan 180° με servo
+- Ανίχνευση “διαδρόμων” (valley detection)
+- Αξιολόγηση διαδρομών (πλάτος / βάθος / γωνία)
+- Anti-stuck μηχανισμός:
   - `consecutiveTurns`
   - `oscillationCount`
-- Όταν δεν υπάρχει ασφαλές άνοιγμα, το ρομπότ μπαίνει σε `STRESS` και επιχειρεί escape + επανασάρωση.
+- Κατάσταση **STRESS** όταν δεν υπάρχει ασφαλής διαδρομή
+
+Το ρομπότ δεν κινείται πλέον “τυφλά”, αλλά επιλέγει την καλύτερη κατεύθυνση.
 
 ---
 
-## 2) Commands (Serial / Bluetooth, 9600)
+## Δ. Παιδαγωγική φιλοσοφία
 
-### Modes
-- `S` = STOP
-- `M` = MANUAL
-- `T` = LINE
-- `O` = AVOID
+- State Machine αρχιτεκτονική
+- Non-blocking προγραμματισμός (`millis()`)
+- Fail-safe μηχανισμοί
+- Modular σχεδίαση (modes)
 
-### Movement (MANUAL)
-- `U` = forward
-- `D` = backward
-- `L` = left
-- `R` = right
-- `X` = stop (μέσα στο MANUAL)
-
-### Extra
-- `H` = Help
-- `I` = MANUAL (Hosyond app IR Control button)
-- `G` = STOP (gravity mode not supported)
+Στόχος: ασφαλής και προβλέψιμη συμπεριφορά σε εκπαιδευτικό περιβάλλον
 
 ---
 
-## 3) IR mapping (NEC command bytes)
+## Ε. Υλικά
 
-### Κίνηση
-- `UP=0x18`
-- `DOWN=0x4A`
-- `LEFT=0x10`
-- `RIGHT=0x5A`
-- `OK=0x38` (STOP)
-
-### Modes
-- `1=0xA2` → MANUAL
-- `2=0x62` → LINE
-- `3=0xE2` → AVOID
-- `0=0x98` → STOP
-
-### Ρυθμίσεις
-- `*=0x68` → speed-
-- `#=0xB0` → speed+
-- `4=0x22` → trim-
-- `5=0x02` → trim reset
-- `6=0xC2` → trim+
+- Arduino UNO (ή συμβατό)
+- L298N Motor Driver
+- 3 αισθητήρες γραμμής
+- Ultrasonic sensor (HC-SR04)
+- Servo (SG90)
+- IR receiver + remote
+- Bluetooth module (HC-05 / HC-06)
 
 ---
 
-## 4) Pinout
+## ΣΤ. Συνδεσμολογία
 
-### L298N
-- LB = D2
-- LF = D4
-- RB = D7
-- RF = D8
-- LPWM = D5
-- RPWM = D6
+### Motor Driver (L298N)
+- LB = D2  
+- LF = D4  
+- RB = D7  
+- RF = D8  
+- LPWM = D5  
+- RPWM = D6  
 
-### Line sensors
-- L = D9
-- M = D10
-- R = D11
+### Line Sensors
+- L = D9  
+- M = D10  
+- R = D11  
 
-> Χρησιμοποιείται `INPUT_PULLUP`.
-> Αν η λογική είναι ανάποδη, άλλαξε `#define LINE_ACTIVE_LOW 0` σε `1`.
+> Χρησιμοποιείται `INPUT_PULLUP`
+
+---
 
 ### Ultrasonic + Servo
-- TRIG = A0
-- ECHO = A1
-- SERVO = D3
-
-### IR + Bluetooth
-- IR receiver = D12
-- BT RX (Arduino) = A2  (Arduino RX <- BT TX)
-- BT TX (Arduino) = A3  (Arduino TX -> BT RX, με διαιρέτη τάσης)
+- TRIG = A0  
+- ECHO = A1  
+- SERVO = D3  
 
 ---
 
-## 5) Ασφάλεια / Fail-safe
-
-- Αν το sonar δώσει επαναλαμβανόμενες άκυρες μετρήσεις, ενεργοποιείται fail-safe.
-- Το mode AVOID μπαίνει σε full scan αντί να συνεχίσει “στα τυφλά”.
-- Στο MANUAL, αν δεν έρθει εντολή για ~1.2s, τα μοτέρ σταματούν αυτόματα.
+### IR Receiver
+- IR = D12  
 
 ---
 
-## 6) Τροφοδοσία & Upload tips
+### Bluetooth
+- RX (Arduino) = A2  
+- TX (Arduino) = A3  
 
-- Στο upload βγάζουμε προσωρινά το Bluetooth module.
-- BT RX χρειάζεται διαιρέτη τάσης (5V -> ~3.3V).
-- Servo: προτείνεται ξεχωριστή σταθερή 5V τροφοδοσία με **κοινή GND** με Arduino/L298N.
+⚠ Απαιτείται διαιρέτης τάσης στο RX
 
 ---
 
-## 7) Έκδοση
+## Ε. Commands (Serial / Bluetooth)
 
-- Sketch: **MASTER v2.7 (Teacher Edition, NO FOLLOW)**
-- Έμφαση σε εκπαιδευτική καθαρότητα, ασφάλεια και επεκτασιμότητα.
+### Modes
+- `S` = STOP  
+- `M` = MANUAL  
+- `T` = LINE  
+- `O` = AVOID  
 
-## License
+### Κίνηση (MANUAL)
+- `U` = forward  
+- `D` = backward  
+- `L` = left  
+- `R` = right  
 
-MIT
+---
+
+## 📡 IR Remote
+
+### Modes
+- `1` → MANUAL  
+- `2` → LINE  
+- `3` → AVOID  
+- `0` → STOP  
+
+### Κίνηση
+- UP / DOWN / LEFT / RIGHT  
+- OK → STOP  
+
+### Ρυθμίσεις
+- `*` → speed down  
+- `#` → speed up  
+- `4 / 6` → trim  
+- `5` → reset trim  
+
+---
+
+## Ζ. Μηχανισμοί Ασφαλείας
+
+- Fail-safe σε άκυρες μετρήσεις sonar  
+- Αυτόματο STOP σε MANUAL (~1.2s χωρίς εντολή)  
+- Anti-stuck και επανασάρωση περιβάλλοντος  
+
+---
+
+## Ε. Τροφοδοσία & Upload
+
+- Προτείνεται ξεχωριστή 5V για servo  
+- Όλα τα GND κοινά  
+- Κατά το upload:
+  - αφαιρούμε προσωρινά το Bluetooth  
+
+---
+
+## Ζ. Εκτέλεση
+
+1. Άνοιξε:
+Hosyond_4wd_Master_TeacherEdition.ino
+2. Επίλεξε Arduino UNO
+3. Upload
+4. Σύνδεσε Bluetooth / IR
+
+---
+
+## Η. Εκπαιδευτικοί στόχοι
+
+- Ρομποτική πλοήγηση
+- State machines
+- Sensor fusion
+- Embedded ασφάλεια (fail-safe)
+- Αυτόνομη λήψη αποφάσεων
+
+---
+
+## Θ. Έκδοση
+
+- **MASTER v2.7 (Teacher Edition)**
+- Σταθερή και δοκιμασμένη σε εργαστηριακό περιβάλλον
+
+---
+
+## Ι. License
+
+MIT License — Εκπαιδευτική χρήση
