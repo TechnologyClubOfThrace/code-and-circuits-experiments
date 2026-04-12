@@ -5,8 +5,8 @@
 #include <Adafruit_SSD1306.h>
 
 // --- SETTINGS ---
-const char* ssid = "steth";
-const char* password = "ilovecomputers";
+const char* ssid = "yourWiFiLoginName";
+const char* password = "yourWiFiPassword";
 const char* oilApiUrl = "https://api.oilpriceapi.com/v1/demo/prices";
 float preWarPrice = 67.0; // αρχική τιμή πριν τον "πόλεμο"
 
@@ -17,7 +17,7 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 float lastPrice = 67; //τελευταία τιμή
 void setup() {
   Serial.begin(115200);
-  Wire.begin(8, 9); // Specific for C3 SuperMini SCL ασπρο 9, SDA grizo 8, mauro gnd-gnd, portokali vcc ->3.3V
+  Wire.begin(8, 9); // Specific for C3 SuperMini: SCL ασπρο 9, SDA grizo 8, mauro gnd-gnd, portokali vcc ->3.3V
   
   if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) { for(;;); }
   

@@ -2,7 +2,7 @@
 ## Brent Crude Oil Live Tracker | ESP32 C3 Supermini
 <p align="center">
 <img src="images/oil_price_tracker.jpg" alt="Oil Tracker Preview" width=600px; height=auto><br>
-  <em>Ολοκλήρωση της κατασκευής στον Σύλλογο Τεχνολογίας Θράκης</em><br>
+  <em>Ολοκληρωμένη κατασκευής στον Σύλλογο Τεχνολογίας Θράκης</em><br>
   <em>Ομάδα Κατασκευής: Γιάννης Γ., Άρης Τ.</em>
 </p>
 🔍 ΤΙ ΚΑΝΕΙ:
@@ -20,7 +20,7 @@
 🛠️ HARDWARE:
 • ESP32 C3 Supermini
 • Screen OLED I2C
-• 4x F2F dupont standard cables
+• 4x F2F dupont (standard jumpper wires)
 
 🔌 ΣΥΝΔΕΣΜΟΛΟΓΙΑ (Pins):
 • Pin 8: SDA
