@@ -1,6 +1,10 @@
 
 ## Brent Crude Oil Live Tracker | ESP32 C3 Supermini
-
+<p align="center">
+<img src="images/oil_price_tracker.jpg" alt="Oil Tracker Preview" width=600px; height=auto><br>
+  <em>Ολοκλήρωση της κατασκευής στον Σύλλογο Τεχνολογίας Θράκης</em><br>
+  <em>Ομάδα Κατασκευής: Γιάννης Γ., Άρης Τ.</em>
+</p>
 🔍 ΤΙ ΚΑΝΕΙ:
 Συνδέεται στο WiFi, αντλεί δεδομένα μέσω API και δείχνει στην οθόνη την τιμή και την τάση (ανοδική/καθοδική).
 
