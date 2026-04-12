@@ -1,4 +1,4 @@
-# Lora_module_ds1b20
+# Lora module SX1278 with ds1b20
 Μετάδοση θερμοκρασίας σε μεγάλες αποστάσεις με lora module SX1278
 
 ## Lora Module SX1278 με τις κεραίες στα 434MHz 2dBi
