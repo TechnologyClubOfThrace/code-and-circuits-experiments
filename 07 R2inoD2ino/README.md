@@ -1,5 +1,11 @@
 # R2inoD2ino - Voice Recognition / Paperwork
 
+<p align="center">
+<img src="images/r200.jpg" alt="R2inoD2ino"; width=600px><br>
+  <em>Ολοκλήρωση της κατασκευής στον Σύλλογο Τεχνολογίας Θράκης</em><br>
+  <em>Ομάδα Κατασκευής: Άρης Τ., Γιάννης Γ. Θεόδωρος Κ., Αστέρης Μ., Δούκας Π.</em>
+</p>
+
 Ένα εντυπωσιακό ρομπότ βασισμένο στο Arduino, το οποίο συνδυάζει την τέχνη του **papercraft** με τον αυτοματισμό. Το R2inoD2ino "ακούει" φωνητικές εντολές και αντιδρά με κινήσεις και προηχογραφημένους ήχους.
 
 ## 🤖 Περιγραφή & Λειτουργία
@@ -30,6 +36,11 @@
 
 ### 3. Κατασκευή Σώματος
 * **Εξωτερικό:** Βασισμένο στο μοντέλο R2-D2 από το [Paper-Replika](https://paper-replika.com/index.php/star-wars/r2-d2-star-wars-papercraft) (Password: `paper-replika.com`).
+<p align="center">
+<img src="images/r201.jpg" alt="R2inoD2ino"; width=600px><br>
+  <em>Χειροτεχνία στον Σύλλογο Τεχνολογίας Θράκης</em><br>
+</p>
+
 * **Εσωτερικό:** Χειροποίητος ξύλινος σκελετός για τη στήριξη των ηλεκτρονικών και των servo.
 
 ## 🎓 Εκπαιδευτικός Στόχος & Roadmap
