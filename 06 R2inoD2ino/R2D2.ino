@@ -11,19 +11,20 @@ static const uint8_t PIN_MP3_RX = 10; // Ard RX <- mp3 TX
 
 // Timer variables
 unsigned long lastActionTime = 0; // Αποθηκεύει το timestamp του τελευταίου action (millis)
-const unsigned long idleTime = 20000; // Time required to go idle (30sec)
+const unsigned long idleTime = 20000; // Time required to go idle (20sec)
 
-// Δημιουργία αντικειμένων
+// Αρχικοποίηση αντικειμένων
 SoftwareSerial softwareSerial(PIN_MP3_RX, PIN_MP3_TX);
 DFRobotDFPlayerMini player;
 Servo myservo;
 DFRobot_DF2301Q_I2C asr;
 
-// Πίνακας με τις διάρκειες των MP3 σε milliseconds (ms)
-// Η θέση στον πίνακα αντιστοιχεί στο όνομα του αρχείου .mp3
+// Πίνακας με τις διάρκειες των MP3s σε milliseconds (ms)
+// Η θέση στον πίνακα αντιστοιχεί στο όνομα του αρχείου xxx.mp3 (όπου x αριθμός)
+// Σε κάποια αρχεία στο πίνακα, αφαιρέθηκαν ~50ms από το πραγματικό duration, καθώς παρατηρήθηκε ότι ορισμένες φορές παίζαν 2 φορές στην σειρά
 const unsigned long mp3Durations[] = {
   0,      // Θέση 0 (δεν χρησιμοποιείται)
-  10000,   // 1. Αγαπημένο τραγούδι
+  10000,  // 1. Αγαπημένο τραγούδι
   11300,  // 2. Από πού ήρθες (80%)
   12300,  // 3. Από πού ήρθες (20%)
   3900,   // 4. Καλύτερος Jedi
@@ -73,7 +74,7 @@ const unsigned long mp3Durations[] = {
 // SETUP
 void setup() {
   Serial.begin(115200); // Έναρξη σειριακής επικοινωνίας για debugging (μέσω USB)
-  randomSeed(analogRead(A0));  // <-- αυτό χρειάζεσαι
+  randomSeed(analogRead(A0));  // Αλλαγή του Seed με βάση τον θόρυβο στην αναλογική θήρα -->Πραγματική τυχαιότητα
   softwareSerial.begin(9600); // Έναρξη σειριακής επικοινωνίας με το DFPlayer Mini
   pinMode(Led, OUTPUT); // Ορισμός του pin LED ως έξοδος
   digitalWrite(Led, LOW); // Βεβαιωνόμαστε ότι το LED είναι αρχικά σβηστό
@@ -124,14 +125,14 @@ if (fileNumber > 0 && fileNumber < (sizeof(mp3Durations) / sizeof(mp3Durations[0
     
     delay(duration);
     digitalWrite(Led, LOW);
-    player.pause(); // Καλύτερα player.stop(); λέει το gpt
+    player.pause(); // Το gpt προτείνει player.stop(); εδώ, δεν το δοκιμάσαμε, 
     updateTimer();
   }
 }
 
 //Main Loop
 void loop() {
-  int CMDID = asr.getCMDID(); // Get Command ID 
+  int CMDID = asr.getCMDID(); // Get Command ID  (Λαμβάνουμε το command που στέλνει ο voice recogn sensor)
 
   switch (CMDID) {
 
@@ -162,7 +163,7 @@ void loop() {
   //"Τι γνώμη έχεις για τον Darth;"
   case 8: playMp3(5); break;
 
-  //Μπορείς να μου πείς ένα αστείο
+  //Μπορείς να μου πείς ένα αστείο;
   case 9: playMp3(random(6, 14)); break;
 
   // "Ποιος είναι ο καλύτερος πιλότος;"
@@ -187,16 +188,16 @@ void loop() {
   //"Τι γνώμη έχεις για το Millennium Falcon;"
   case 14: playMp3(18); break;
 
-  //"Μπορείς να μου πεις μια ιστορία;"   			-->Note: Na ginei pes mou mia istoria
+  //"Μπορείς να μου πεις μια ιστορία;"   			-->Note: το 70% της εντολής (η αρχή) είναι ίδιο με άλλη και μπερδεύετε κάποιες φορές
   case 15: playMp3(19); break;
    
    //"Ποια είναι η αγαπημένη σου φράση;"
   case 16: playMp3(20); break;
 
-  //"Τι γνώμη έχεις για την Πριγκίπισσα Λία;"   	-->Note: Να αφαιρεθεί
+  //"Τι γνώμη έχεις για την Πριγκίπισσα Λία;"   	-->Note: το 70% της εντολής (η αρχή) είναι ίδιο με άλλη και μπερδεύετε κάποιες φορές
   case 17: playMp3(21); break;
 
-  // "Μπορείς να μου δείξεις ένα κόλπο;"   			-->Note: Να γίνει Δείξε μου ένα κολπο
+  // "Μπορείς να μου δείξεις ένα κόλπο;"   			-->Note: το 70% της εντολής (η αρχή) είναι ίδιο με άλλη και μπερδεύετε κάποιες φορές
   case 18: playMp3(22); break;
 	
   //"Ποιος είναι ο πιο τρομακτικός Sith;"
@@ -208,7 +209,7 @@ void loop() {
   //"Τι ώρα είναι;"
   case 21: playMp3(25); break;
   
-  //Dokimasame to stop playing CMID 93 me  player.pause(); den paizei logo delay  
+  //Εδώ μπορεί να δοκιμαστεί ένα build in command πχ το "stop playing" (CMID 93) για να δείξουμε ότι το player.pause(); ΔΕΝ παίζει (καθώς είμαστε σε delay = παγωμένο πρόγραμμα)  
 
   default:
     if (CMDID != 0) {
@@ -221,9 +222,8 @@ void loop() {
     Serial.println("Idle για 30 δεύτερα. Performing idle action.");
 
     // ... your idle action code goes here ...
-    playMp3(random(30, 46)); // //player.playMp3Folder(30);
+    playMp3(random(30, 46)); // Επιλογή ενός τυχαίου mp3 από 030.mp3 μέχρι 045.mp3 (idle sounds)
     // ... your idle action code goes here..
-
     lastActionTime = millis(); // Reset timer after idle action
   }
   delay(400);
