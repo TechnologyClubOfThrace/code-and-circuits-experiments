@@ -1,4 +1,4 @@
-# Flapy Bird for Arduino Uno + 1.8" TFT ST7735
+# Flappy Bird for Arduino Uno + 1.8" TFT ST7735
 
 📁 Φάκελος: `05_flapy_bird_arduino/`
 
