@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brent Crude Oil Live Tracker</title>
+  <meta name="description" content="ESP32-C3 project που εμφανίζει σε OLED την τρέχουσα τιμή Brent μέσω online API." />
+  <link rel="canonical" href="https://technologyclubofthrace.github.io/code-and-circuits-experiments/projects/oil-price-tracker.html" />
+  <meta property="og:locale" content="el_GR" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Arduino Mini Projects" />
+  <meta property="og:title" content="Brent Crude Oil Live Tracker" />
+  <meta property="og:description" content="ESP32-C3 tracker με WiFi, API και OLED προβολή τιμής πετρελαίου Brent." />
+  <meta property="og:url" content="https://technologyclubofthrace.github.io/code-and-circuits-experiments/projects/oil-price-tracker.html" />
+  <meta property="og:image" content="https://technologyclubofthrace.github.io/code-and-circuits-experiments/assets/oil-tracker-preview.jpg" />
+  <meta property="og:image:alt" content="Preview εικόνα του Brent Crude Oil Live Tracker" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Brent Crude Oil Live Tracker" />
+  <meta name="twitter:description" content="ESP32-C3 tracker με online API και OLED προβολή τιμής Brent." />
+  <meta name="twitter:image" content="https://technologyclubofthrace.github.io/code-and-circuits-experiments/assets/oil-tracker-preview.jpg" />
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+  <main>
+    <section class="container page-header">
+      <h1>04. Brent Crude Oil Live Tracker | ESP32-C3 Supermini</h1>
+      <p class="lead">
+        Project IoT που συνδέεται σε WiFi, καλεί API σε πραγματικό χρόνο και εμφανίζει
+        στην OLED την τρέχουσα τιμή πετρελαίου Brent μαζί με ένδειξη τάσης.
+      </p>
+    </section>
+
+    <section class="container two-col">
+      <div class="content-box">
+        <h2>Περιγραφή</h2>
+        <p>
+          Η συσκευή λειτουργεί ως μικρό πληροφοριακό terminal. Ανακτά δεδομένα αγοράς,
+          τα αναλύει με JSON και τα παρουσιάζει σε compact interface 128x64.
+        </p>
+        <p>
+          Ολοκλήρωση της κατασκευής στον Σύλλογο Τεχνολογίας Θράκης
+        </p>
+        <p>
+          Ομάδα Κατασκευής: Γιάννης Γ., Άρης Τ.
+        </p>
+
+        <h3>Α. Λειτουργίες λογισμικού</h3>
+        <ul>
+          <li>WiFi σύνδεση και κλήση API χωρίς API key</li>
+          <li>Parsing JSON δεδομένων με ευέλικτη δομή</li>
+          <li>Απεικόνιση τιμής Brent και κατεύθυνσης μεταβολής</li>
+          <li>Υποδομή έτοιμη για εναλλαγή ή επέκταση APIs</li>
+        </ul>
+
+        <h3>Β. Βιβλιοθήκες</h3>
+        <ul>
+          <li>HTTPClient</li>
+          <li>ArduinoJSON</li>
+          <li>Adafruit GFX</li>
+          <li>Adafruit SSD1306</li>
+        </ul>
+
+        <h3>Γ. Υλικά</h3>
+        <ul>
+          <li>ESP32-C3 Supermini</li>
+          <li>OLED I2C 128x64</li>
+          <li>4x Dupont F2F καλώδια</li>
+          <li>USB τροφοδοσία (ή μπαταρία με κατάλληλο regulator)</li>
+        </ul>
+
+        <h3>Δ. Συνδεσμολογία OLED</h3>
+        <ul>
+          <li>VCC → 3.3V</li>
+          <li>GND → GND</li>
+          <li>SDA → GPIO 8</li>
+          <li>SCL → GPIO 9</li>
+        </ul>
+
+        <h3>Παρουσίαση</h3>
+        <p>
+          Video λειτουργίας στο YouTube:
+          <a href="https://www.youtube.com/watch?v=RXw2apjPLxI">Brent Crude Oil Live Tracker Demo</a>
+        </p>
+      </div>
+
+      <div class="content-box">
+        <h2>Φωτογραφίες</h2>
+        <img class="preview-image" src="../assets/oil-tracker-preview.jpg" alt="Brent Crude Oil Live Tracker" />
+        <div class="photo-gallery">
+          <img class="gallery-image" src="../assets/oil-tracker-screen.jpg" alt="OLED οθόνη με τιμή πετρελαίου" />
+          <img class="gallery-image" src="../assets/oil-tracker-preview.jpg" alt="Κατασκευή ESP32-C3 Oil Tracker" />
+        </div>
+      </div>
+    </section>
+
+    <section class="container page-actions">
+      <a class="page-action page-action-secondary" href="../index.html">← Επιστροφή στο portfolio</a>
+      <a class="page-action page-action-primary" href="https://github.com/TechnologyClubOfThrace/code-and-circuits-experiments/tree/main/04_oil_price_tracker">Άνοιγμα φακέλου project στο GitHub</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-box">
+      <div>Σύλλογος Τεχνολογίας Θράκης · MakerLab</div>
+      <div>GitHub Pages portfolio για εκπαιδευτικές κατασκευές, κώδικα και τεκμηρίωση.</div>
+    </div>
+  </footer>
+</body>
+</html>

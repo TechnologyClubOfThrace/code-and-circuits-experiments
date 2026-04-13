@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LoRa SX1278 με DS18B20</title>
+  <meta name="description" content="Εκπαιδευτικό Arduino project για μετάδοση θερμοκρασίας σε μεγάλες αποστάσεις με LoRa SX1278 και DS18B20." />
+  <link rel="canonical" href="https://technologyclubofthrace.github.io/code-and-circuits-experiments/projects/lora-ds18b20.html" />
+  <meta property="og:locale" content="el_GR" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Arduino Mini Projects" />
+  <meta property="og:title" content="LoRa SX1278 με DS18B20" />
+  <meta property="og:description" content="Μετάδοση θερμοκρασίας σε μεγάλες αποστάσεις με δύο LoRa modules και αισθητήρα DS18B20." />
+  <meta property="og:url" content="https://technologyclubofthrace.github.io/code-and-circuits-experiments/projects/lora-ds18b20.html" />
+  <meta property="og:image" content="https://technologyclubofthrace.github.io/code-and-circuits-experiments/assets/lora-preview.jpg" />
+  <meta property="og:image:alt" content="Preview εικόνα του project LoRa SX1278 με DS18B20" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="LoRa SX1278 με DS18B20" />
+  <meta name="twitter:description" content="Μετάδοση θερμοκρασίας σε μεγάλες αποστάσεις με LoRa SX1278 και DS18B20." />
+  <meta name="twitter:image" content="https://technologyclubofthrace.github.io/code-and-circuits-experiments/assets/lora-preview.jpg" />
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+  <main>
+    <section class="container page-header">
+      <h1>03. LoRa SX1278 με DS18B20</h1>
+      <p class="lead">
+        Εκπαιδευτικό project ασύρματης επικοινωνίας που μεταδίδει θερμοκρασία από αισθητήρα DS18B20
+        μέσω LoRa, δείχνοντας στην πράξη πώς στήνουμε transmitter και receiver για μεγαλύτερες αποστάσεις.
+      </p>
+    </section>
+
+    <section class="container two-col">
+      <div class="content-box">
+        <h2>Περιγραφή</h2>
+        <p>
+          Το project αποτελείται από δύο Arduino UNO με LoRa SX1278 modules στα 434MHz.
+          Ο transmitter διαβάζει θερμοκρασία από DS18B20 και την αποστέλλει στον receiver.
+        </p>
+        <p>
+          Ολοκλήρωση της κατασκευής στον Σύλλογο Τεχνολογίας Θράκης
+        </p>
+        <p>
+          Ομάδα Κατασκευής: Γιάννης Γ., Άρης Τ., Δημήτρης Κ.
+        </p>
+
+        <h3>Α. Βασικές λειτουργίες</h3>
+        <ul>
+          <li>Ασύρματη μετάδοση θερμοκρασίας με LoRa SX1278</li>
+          <li>Αρχιτεκτονική transmitter/receiver</li>
+          <li>Λειτουργία στα 434MHz με εξωτερικές κεραίες 2dBi</li>
+          <li>Ανάγνωση θερμοκρασίας από DS18B20 στον transmitter</li>
+        </ul>
+
+        <h3>Β. Εκπαιδευτική αξία</h3>
+        <ul>
+          <li>Εισαγωγή στα δίκτυα χαμηλής ισχύος και μεγάλου εύρους</li>
+          <li>Πρακτική χρήση SPI για LoRa modules</li>
+          <li>Διαχείριση αισθητήρα OneWire στο Arduino</li>
+          <li>Βασικές αρχές τηλεμετρίας σε embedded συστήματα</li>
+        </ul>
+
+        <h3>Γ. Υλικά</h3>
+        <ul>
+          <li>2x Arduino UNO</li>
+          <li>2x LoRa SX1278 modules</li>
+          <li>2x κεραίες 434MHz 2dBi</li>
+          <li>1x DS18B20 (στον transmitter)</li>
+          <li>1x αντίσταση 4.7kOhm</li>
+          <li>Καλώδια σύνδεσης</li>
+        </ul>
+
+        <h3>Δ. Συνδεσμολογία LoRa σε Arduino UNO</h3>
+        <ul>
+          <li>3.3V → 3.3V</li>
+          <li>GND → GND</li>
+          <li>EN/NSS → D10</li>
+          <li>G0/DIO0 → D2</li>
+          <li>SCK → D13</li>
+          <li>MISO → D12</li>
+          <li>MOSI → D11</li>
+          <li>RST → D9</li>
+        </ul>
+
+        <h3>Σημαντική σημείωση</h3>
+        <p>
+          Ο αισθητήρας DS18B20 συνδέεται στο pin D4 του transmitter και απαιτεί pull-up
+          αντίσταση 4.7kOhm.
+        </p>
+      </div>
+
+      <div class="content-box">
+        <h2>Φωτογραφίες</h2>
+        <img class="preview-image" src="../assets/lora-preview.jpg" alt="LoRa SX1278 με DS18B20" />
+        <div class="photo-gallery">
+          <img class="gallery-image" src="../assets/lora-transmitter-receiver.jpg" alt="LoRa transmitter και receiver" />
+          <img class="gallery-image" src="../assets/lora-schematic.jpg" alt="Σχηματικό διάγραμμα LoRa DS18B20" />
+          <img class="gallery-image" src="../assets/lora-pinout.jpg" alt="Pin wiring LoRa SX1278" />
+        </div>
+      </div>
+    </section>
+
+    <section class="container page-actions">
+      <a class="page-action page-action-secondary" href="../index.html">← Επιστροφή στο portfolio</a>
+      <a class="page-action page-action-primary" href="https://github.com/TechnologyClubOfThrace/code-and-circuits-experiments/tree/main/03_lora_module_with_ds18b20">Άνοιγμα φακέλου project στο GitHub</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-box">
+      <div>Σύλλογος Τεχνολογίας Θράκης · MakerLab</div>
+      <div>GitHub Pages portfolio για εκπαιδευτικές κατασκευές, κώδικα και τεκμηρίωση.</div>
+    </div>
+  </footer>
+</body>
+</html>

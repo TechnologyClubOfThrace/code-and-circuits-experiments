@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>R2inoD2ino</title>
+  <meta name="description" content="Arduino robot με voice recognition, ήχους, servo κίνηση και papercraft σώμα." />
+  <link rel="canonical" href="https://technologyclubofthrace.github.io/code-and-circuits-experiments/projects/r2inod2ino.html" />
+  <meta property="og:locale" content="el_GR" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Arduino Mini Projects" />
+  <meta property="og:title" content="R2inoD2ino" />
+  <meta property="og:description" content="Robot με voice recognition, προηχογραφημένους ήχους, servo και LED." />
+  <meta property="og:url" content="https://technologyclubofthrace.github.io/code-and-circuits-experiments/projects/r2inod2ino.html" />
+  <meta property="og:image" content="https://technologyclubofthrace.github.io/code-and-circuits-experiments/assets/r2ino-preview.jpg" />
+  <meta property="og:image:alt" content="Preview εικόνα του R2inoD2ino" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="R2inoD2ino" />
+  <meta name="twitter:description" content="Arduino robot με φωνητικό έλεγχο, ήχο, servo και papercraft σώμα." />
+  <meta name="twitter:image" content="https://technologyclubofthrace.github.io/code-and-circuits-experiments/assets/r2ino-preview.jpg" />
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+  <main>
+    <section class="container page-header">
+      <h1>06. R2inoD2ino · Robot με Voice Recognition</h1>
+      <p class="lead">
+        Δημιουργική κατασκευή που συνδυάζει Arduino αυτοματισμό και papercraft design.
+        Το robot αναγνωρίζει φωνητικές εντολές και απαντά με ήχους, κίνηση κεφαλιού και LED φωτισμό.
+      </p>
+    </section>
+
+    <section class="container two-col">
+      <div class="content-box">
+        <h2>Περιγραφή</h2>
+        <p>
+          Το R2inoD2ino είναι ένα θεματικό εκπαιδευτικό project που παντρεύει ηλεκτρονικά,
+          προγραμματισμό και χειροτεχνία. Το εξωτερικό σώμα είναι papercraft και το εσωτερικό
+          βασίζεται σε ξύλινη υποδομή για τη στήριξη του hardware.
+        </p>
+        <p>
+          Ολοκλήρωση της κατασκευής στον Σύλλογο Τεχνολογίας Θράκης
+        </p>
+        <p>
+          Ομάδα Κατασκευής: Άρης Τ., Γιάννης Γ., Θεόδωρος Κ., Αστέρης Μ., Δούκας Π.
+        </p>
+
+        <h3>Α. Βασικές λειτουργίες</h3>
+        <ul>
+          <li>Υποστήριξη έως 17 custom φωνητικών εντολών</li>
+          <li>Λογική απόκρισης με switch-case (ήχος + servo + LED)</li>
+          <li>Idle mode με τυχαία επιλογή ήχων αναμονής</li>
+          <li>Συνδυασμός μηχανικής κατασκευής και embedded λογισμικού</li>
+        </ul>
+
+        <h3>Β. Υλικά</h3>
+        <ul>
+          <li>Arduino UNO (DFRduino)</li>
+          <li>Arduino Expansion Shield</li>
+          <li>DFRobot Voice Recognition Sensor</li>
+          <li>DFPlayer Mini MP3 + ηχείο 2W 8Ohm</li>
+          <li>1x Servo και 1x κόκκινο LED</li>
+          <li>Powerbank + regulator L7805CV (5V 1.5A)</li>
+        </ul>
+
+        <h3>Γ. Οδηγίες προετοιμασίας</h3>
+        <ul>
+          <li>Καταγραφή φωνητικών εντολών απευθείας στη μνήμη του module</li>
+          <li>Αποφυγή μεγάλων φράσεων για καλύτερη αναγνώριση</li>
+          <li>Ονόματα αρχείων ήχου σε SD: 001.mp3, 002.mp3, ...</li>
+          <li>Θέσεις 30-45 αφιερωμένες στο idle mode</li>
+        </ul>
+
+        <h3>Δ. Κατασκευή σώματος</h3>
+        <ul>
+          <li>Εξωτερικό papercraft βασισμένο σε μοντέλο R2-D2</li>
+          <li>Εσωτερικός ξύλινος σκελετός για μηχανική σταθερότητα</li>
+          <li>Ενίσχυση με depron για σωστή εφαρμογή επιπέδων</li>
+        </ul>
+
+        <h3>Εκπαιδευτικοί στόχοι</h3>
+        <ul>
+          <li>Κατανόηση του σειριακού τρόπου εκτέλεσης με delay()</li>
+          <li>Εισαγωγή στη non-blocking λογική με millis()</li>
+          <li>Roadmap για πλήρη refactor σε ταυτόχρονη κίνηση και ομιλία</li>
+        </ul>
+      </div>
+
+      <div class="content-box">
+        <h2>Φωτογραφίες</h2>
+        <img class="preview-image" src="../assets/r2ino-preview.jpg" alt="R2inoD2ino Robot" />
+        <div class="photo-gallery">
+          <img class="gallery-image" src="../assets/r2ino-craft.jpg" alt="Κατασκευή papercraft R2inoD2ino" />
+          <img class="gallery-image" src="../assets/r2ino-skeleton.jpg" alt="Εσωτερικός ξύλινος σκελετός R2inoD2ino" />
+        </div>
+      </div>
+    </section>
+
+    <section class="container page-actions">
+      <a class="page-action page-action-secondary" href="../index.html">← Επιστροφή στο portfolio</a>
+      <a class="page-action page-action-primary" href="https://github.com/TechnologyClubOfThrace/code-and-circuits-experiments/tree/main/06%20R2inoD2ino">Άνοιγμα φακέλου project στο GitHub</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-box">
+      <div>Σύλλογος Τεχνολογίας Θράκης · MakerLab</div>
+      <div>GitHub Pages portfolio για εκπαιδευτικές κατασκευές, κώδικα και τεκμηρίωση.</div>
+    </div>
+  </footer>
+</body>
+</html>
