@@ -5,10 +5,8 @@
 ## Α. Προεπισκόπηση
 
 <p align="center">
-  <img src="images/flapy003.jpg" alt="Flapy Bird on Arduino with small TFT" width="600px" height="auto">
   <img src="images/flapy002.jpg" alt="Flapy Bird on Arduino with small TFT" width="600px" height="auto">
   <img src="images/flapy001.jpg" alt="Flapy Bird on Arduino with small TFT" width="600px" height="auto">
-  <img src="images/flapy004.jpg" alt="Flapy Bird on Arduino with small TFT" width="600px" height="auto">
   <br>
   <em>Ολοκληρωμένη κατασκευή στον Σύλλογο Τεχνολογίας Θράκης</em>
   <br>
@@ -20,12 +18,11 @@
 ## Β. Περιγραφή
 
 Προκειτε για ένα κλώνο του Flapy Bird σχεδιασμένο για να παίζει σε Arduino (ATmega328) σε μια οθόνη 1.8"
-Original Repo: 
-http://github.com/mrt-prodz/ATmega328-Flappy-Bird-Clone
-http://mrt-prodz.com
+Original Repo: http://github.com/mrt-prodz/ATmega328-Flappy-Bird-Clone http://mrt-prodz.com
 by Themistokle "mrt-prodz" Benetatos
 
-Η δική μας εκδοχή έχει απλά κάποιες μίκρ-οαλλαγες στην συνδεσμολογια του button.
+Η δική μας εκδοχή έχει απλά κάποιες μίκρο-αλλαγες στην συνδεσμολογια του button (απλοποίηση).
+
 ---
 
 ## Γ. Λειτουργίες & Software
