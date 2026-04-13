@@ -18,7 +18,7 @@
 ## Β. Περιγραφή
 Πρόκειται για έναν απλοποιημένο κλώνο του δημοφιλούς παιχνιδιού **Flappy Bird**, για τον μικροελεγκτή ATmega328P (Arduino Uno) και έγχρωμη οθόνη TFT 1.8".
 
-Η συγκεκριμένη υλοποίηση βασίζεται στο αρχικό project του **Themistokle "mrt-prodz" Benetatos**, με τροποποιήσεις στη συνδεσμολογία του κουμπιού (button) για ευκολότερη υλοποίηση στο breadboard.
+Η συγκεκριμένη υλοποίηση βασίζεται στο αρχικό project του **Themistokle "mrt-prodz" Benetatos**, οι τροποποιήσεις μας αφορούν μια αλλαγή στην συνδεσμολογία του κουμπιού (button) για ευκολότερη υλοποίηση στο breadboard, επίσης έχουν γίνει κάποιες αλλαγές στον κώδικα γιατί στην αρχή μας έβγαζε 'scrambled' αποτελέσματα στην οθόνη.
 
 * **Original Repo:** [ATmega328-Flappy-Bird-Clone](http://github.com/mrt-prodz/ATmega328-Flappy-Bird-Clone)
 * **Website:** [mrt-prodz.com](http://mrt-prodz.com)
