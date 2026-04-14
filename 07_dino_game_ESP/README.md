@@ -20,8 +20,12 @@
 
 ## Γ. Λειτουργίες & Software
 ...:
-* `library`
-* `library`
+* `#include <Adafruit_GFX.h>`
+* `include <Adafruit_ST7789.h>`
+* `#include <SPI.h>`
+
+Και τις 2 libraries gameover.h και noInternet.h
+#
 
 ## Δ. Υλικά (Hardware)
 Για την κατασκευή θα χρειαστείτε:
