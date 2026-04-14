@@ -28,8 +28,8 @@
 ## Δ. Υλικά (Hardware)
 Για την κατασκευή θα χρειαστείτε:
 * **1x ESP Ideaskpark** (με ενσωματωμένη οθόνη TFT ST7789)
-* **1x Breadboard (Optional)**
-* **2x Jumper Wires (Dupont)**
+* **1x Breadboard** (Optional)
+* **2x Jumper Wires** (Dupont)
 * **1x Push Button**
 * **🔋 Τροφοδοσία:** Μέσω USB (δυνατότητα για προσθήκη μπαταρίας 9V για φορητότητα).
 
@@ -48,9 +48,14 @@
 3. Επιλέξτε την σωστή θύρα (Port) και το board **ESP32 Dev Module**.
 4. Πατήστε **Upload** και είστε έτοιμοι!
 
-## 📺 Δείτε το σε δράση
-[![Dino Game Gameplay](https://img.youtube.com/vi/9ZgGKhBgoEw/0.jpg)](https://youtu.be/9ZgGKhBgoEw)
-*Κάντε κλικ στην εικόνα για να δείτε το βίντεο στο YouTube.*
+## 🎬 Δείτε το σε δράση
+<p align="center">
+  <a href="https://youtu.be/9ZgGKhBgoEw">
+    <img src="https://img.youtube.com/vi/9ZgGKhBgoEw/0.jpg" alt="Dino Game Gameplay">
+  </a>
+  <br>
+  <em>Κάντε κλικ στην εικόνα για να δείτε το βίντεο στο YouTube.</em>
+</p>
 
 ---
 
