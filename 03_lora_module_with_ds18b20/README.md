@@ -90,10 +90,6 @@
 > [!IMPORTANT]
 > Το LoRa SX1278 λειτουργεί στα **3.3V**. Μην το τροφοδοτήσετε με **5V**.
 
-<p align="center">
-  <img src="img/pin_wiring.jpg" alt="LoRa and DS18B20 pin wiring" width="500" height="auto">
-</p>
-
 ---
 
 ## Η. Κώδικας
