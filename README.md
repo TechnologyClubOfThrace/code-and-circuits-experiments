@@ -56,4 +56,3 @@
 📁 Φάκελος: `07_dino_game_ESP/` — Endless runner τύπου Chrome Dino για ESP με ενσωματωμένη TFT ST7789 και button input, κατάλληλο για εκμάθηση game state λογικής, rendering γραφικών και workflow compile/upload σε ESP32.
 
 ---
-Δοκιμή
