@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flappy Bird για Arduino Uno</title>
+  <meta name="description" content="Flappy Bird clone για Arduino Uno με οθόνη TFT ST7735 και κουμπί ελέγχου." />
+  <link rel="canonical" href="https://technologyclubofthrace.github.io/code-and-circuits-experiments/projects/flappy-bird-arduino.html" />
+  <meta property="og:locale" content="el_GR" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Arduino Mini Projects" />
+  <meta property="og:title" content="Flappy Bird για Arduino Uno" />
+  <meta property="og:description" content="Απλοποιημένος Flappy Bird κλώνος για Arduino Uno και TFT ST7735 οθόνη." />
+  <meta property="og:url" content="https://technologyclubofthrace.github.io/code-and-circuits-experiments/projects/flappy-bird-arduino.html" />
+  <meta property="og:image" content="https://technologyclubofthrace.github.io/code-and-circuits-experiments/assets/flappy-preview.jpg" />
+  <meta property="og:image:alt" content="Preview εικόνα του Flappy Bird για Arduino Uno" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Flappy Bird για Arduino Uno" />
+  <meta name="twitter:description" content="Mini arcade project με Arduino Uno, TFT ST7735 και push button." />
+  <meta name="twitter:image" content="https://technologyclubofthrace.github.io/code-and-circuits-experiments/assets/flappy-preview.jpg" />
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+  <main>
+    <section class="container page-header">
+      <h1>05. Flappy Bird για Arduino Uno + TFT ST7735</h1>
+      <p class="lead">
+        Arcade κατασκευή που υλοποιεί έναν απλοποιημένο κλώνο του Flappy Bird σε Arduino Uno,
+        με γραφικά σε έγχρωμη TFT οθόνη 1.8" και έλεγχο με ένα μόνο κουμπί.
+      </p>
+    </section>
+
+    <section class="container two-col">
+      <div class="content-box">
+        <h2>Περιγραφή</h2>
+        <p>
+          Το project βασίζεται στην αρχική δουλειά του Themistokle "mrt-prodz" Benetatos,
+          με προσαρμογές στη συνδεσμολογία του κουμπιού και βελτιώσεις στον κώδικα ώστε
+          η απεικόνιση στην οθόνη να είναι σταθερή και καθαρή.
+        </p>
+        <p>
+          Ολοκλήρωση της κατασκευής στον Σύλλογο Τεχνολογίας Θράκης
+        </p>
+        <p>
+          Ομάδα Κατασκευής: Δημήτρης Κ., Γιάννης Γ., Άρης Τ.
+        </p>
+
+        <h3>Α. Λειτουργίες λογισμικού</h3>
+        <ul>
+          <li>Γρήγορη ανανέωση γραφικών μέσω SPI</li>
+          <li>Χρήση βιβλιοθηκών Adafruit_GFX και Adafruit_ST7735</li>
+          <li>Απλή λογική χειρισμού με ένα push button</li>
+          <li>INPUT_PULLUP για απλούστερη και πιο καθαρή καλωδίωση</li>
+        </ul>
+
+        <h3>Β. Υλικά</h3>
+        <ul>
+          <li>Arduino Uno (ATmega328P)</li>
+          <li>ST7735 TFT 128x160 (SPI)</li>
+          <li>Breadboard</li>
+          <li>10x Dupont καλώδια</li>
+          <li>1x Push button</li>
+          <li>Τροφοδοσία μέσω USB</li>
+        </ul>
+
+        <h3>Γ. Συνδεσμολογία TFT ST7735</h3>
+        <ul>
+          <li>VCC → 5V</li>
+          <li>GND → GND</li>
+          <li>CS → D10</li>
+          <li>RESET → D8</li>
+          <li>D/C → D9</li>
+          <li>MOSI → D11</li>
+          <li>SCK → D13</li>
+          <li>LED → 3.3V</li>
+        </ul>
+
+        <h3>Δ. Συνδεσμολογία κουμπιού</h3>
+        <ul>
+          <li>Button Pin A → D2</li>
+          <li>Button Pin B → GND</li>
+        </ul>
+        <p>
+          Η υλοποίηση αξιοποιεί την εσωτερική pull-up αντίσταση του Arduino,
+          οπότε δεν απαιτείται εξωτερική αντίσταση 10kOhm.
+        </p>
+
+        <h3>Ε. Σημαντική σημείωση hardware</h3>
+        <p>
+          Πολλά TFT modules λειτουργούν εσωτερικά σε λογική 3.3V. Ελέγξτε τα τεχνικά χαρακτηριστικά
+          του συγκεκριμένου module σας και χρησιμοποιήστε level shifting όπου απαιτείται.
+        </p>
+
+        <h3>Παρουσίαση</h3>
+        <p>
+          Video λειτουργίας:
+          <a href="https://github.com/TechnologyClubOfThrace/code-and-circuits-experiments/blob/main/05_flappy_bird_Arduino/videos/Flappy%20Bird.mp4">Flappy Bird on Arduino (MP4)</a>
+        </p>
+      </div>
+
+      <div class="content-box">
+        <h2>Φωτογραφίες</h2>
+        <img class="preview-image" src="../assets/flappy-preview.jpg" alt="Flappy Bird για Arduino Uno" />
+        <div class="photo-gallery">
+          <img class="gallery-image" src="../assets/flappy-gameplay.jpg" alt="Gameplay στην οθόνη TFT" />
+          <img class="gallery-image" src="../assets/flappy-wiring.jpg" alt="Κατασκευή και συνδεσμολογία σε breadboard" />
+        </div>
+      </div>
+    </section>
+
+    <section class="container page-actions">
+      <a class="page-action page-action-secondary" href="../index.html">← Επιστροφή στο portfolio</a>
+      <a class="page-action page-action-primary" href="https://github.com/TechnologyClubOfThrace/code-and-circuits-experiments/tree/main/05_flappy_bird_Arduino">Άνοιγμα φακέλου project στο GitHub</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-box">
+      <div>Σύλλογος Τεχνολογίας Θράκης · MakerLab</div>
+      <div>GitHub Pages portfolio για εκπαιδευτικές κατασκευές, κώδικα και τεκμηρίωση.</div>
+    </div>
+  </footer>
+</body>
+</html>

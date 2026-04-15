@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dino Game για ESP</title>
+  <meta name="description" content="Chrome Dino clone για ESP με ενσωματωμένη TFT ST7789 οθόνη και push button." />
+  <link rel="canonical" href="https://technologyclubofthrace.github.io/code-and-circuits-experiments/projects/dino-game-esp.html" />
+  <meta property="og:locale" content="el_GR" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Arduino Mini Projects" />
+  <meta property="og:title" content="Dino Game για ESP" />
+  <meta property="og:description" content="Παιχνίδι τύπου Chrome Dino για ESP Ideaspark με ST7789 οθόνη." />
+  <meta property="og:url" content="https://technologyclubofthrace.github.io/code-and-circuits-experiments/projects/dino-game-esp.html" />
+  <meta property="og:image" content="https://technologyclubofthrace.github.io/code-and-circuits-experiments/assets/dino-preview.jpg" />
+  <meta property="og:image:alt" content="Preview εικόνα του Dino Game για ESP" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Dino Game για ESP" />
+  <meta name="twitter:description" content="Offline Dino game υλοποίηση σε ESP Ideaspark με κουμπί και TFT ST7789." />
+  <meta name="twitter:image" content="https://technologyclubofthrace.github.io/code-and-circuits-experiments/assets/dino-preview.jpg" />
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+  <main>
+    <section class="container page-header">
+      <h1>07. Dino Game (Chrome Offline) για ESP</h1>
+      <p class="lead">
+        Εκπαιδευτικό game project που αναπαράγει την εμπειρία του offline Dino του Chrome,
+        πάνω σε ESP πλατφόρμα με ενσωματωμένη οθόνη TFT ST7789.
+      </p>
+    </section>
+
+    <section class="container two-col">
+      <div class="content-box">
+        <h2>Περιγραφή</h2>
+        <p>
+          Η κατασκευή υλοποιεί βασικό endless runner gameplay με άλμα μέσω push button,
+          εμφανίζοντας γραφικά και animation απευθείας στην onboard οθόνη της πλακέτας.
+        </p>
+        <p>
+          Ολοκλήρωση της κατασκευής στον Σύλλογο Τεχνολογίας Θράκης
+        </p>
+        <p>
+          Ομάδα Κατασκευής: Δημήτρης Κ., Γιάννης Γ., Άρης Τ.
+        </p>
+
+        <h3>Α. Λειτουργίες λογισμικού</h3>
+        <ul>
+          <li>Gameplay τύπου Chrome Dino με εμπόδια και score</li>
+          <li>Χρήση Adafruit_GFX και Adafruit_ST7789</li>
+          <li>Υποστήριξη custom γραφικών μέσω των αρχείων gameover.h και noInternet.h</li>
+          <li>Έλεγχος με ένα κουμπί (jump)</li>
+        </ul>
+
+        <h3>Β. Υλικά</h3>
+        <ul>
+          <li>ESP Ideaspark με ενσωματωμένη TFT ST7789</li>
+          <li>1x Push button</li>
+          <li>2x Dupont καλώδια</li>
+          <li>Τροφοδοσία μέσω USB</li>
+        </ul>
+
+        <h3>Γ. Συνδεσμολογία</h3>
+        <ul>
+          <li>GPIO 27 → Button Pin A</li>
+          <li>GND → Button Pin B</li>
+        </ul>
+        <p>
+          Η οθόνη ST7789 είναι ήδη συνδεδεμένη εσωτερικά στην πλακέτα Ideaspark,
+          οπότε δεν απαιτείται εξωτερική καλωδίωση για display.
+        </p>
+
+        <h3>Δ. Οδηγίες εκτέλεσης</h3>
+        <ul>
+          <li>Ανοίξτε το Dino.ino μαζί με τα gameover.h και noInternet.h στον ίδιο φάκελο</li>
+          <li>Στο Arduino IDE επιλέξτε board: ESP32 Dev Module</li>
+          <li>Επιλέξτε σωστή θύρα και ανεβάστε τον κώδικα</li>
+        </ul>
+
+        <h3>Σημείωση WIP</h3>
+        <p>
+          Σε night mode έχει καταγραφεί ότι ο dino μπορεί να εμφανίζει λευκό περίγραμμα
+          (halo effect). Το project βρίσκεται σε ενεργή βελτίωση.
+        </p>
+
+        <h3>Παρουσίαση</h3>
+        <p>
+          Video λειτουργίας στο YouTube:
+          <a href="https://youtu.be/9ZgGKhBgoEw">Dino Game Gameplay</a>
+        </p>
+      </div>
+
+      <div class="content-box">
+        <h2>Φωτογραφίες</h2>
+        <img class="preview-image" src="../assets/dino-preview.jpg" alt="Dino Game για ESP" />
+        <div class="photo-gallery">
+          <img class="gallery-image" src="../assets/dino-gameplay.jpg" alt="Gameplay του Dino στην οθόνη" />
+          <img class="gallery-image" src="../assets/dino-board.jpg" alt="Πλακέτα ESP με το project Dino" />
+        </div>
+      </div>
+    </section>
+
+    <section class="container page-actions">
+      <a class="page-action page-action-secondary" href="../index.html">← Επιστροφή στο portfolio</a>
+      <a class="page-action page-action-primary" href="https://github.com/TechnologyClubOfThrace/code-and-circuits-experiments/tree/main/07_dino_game_ESP">Άνοιγμα φακέλου project στο GitHub</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-box">
+      <div>Σύλλογος Τεχνολογίας Θράκης · MakerLab</div>
+      <div>GitHub Pages portfolio για εκπαιδευτικές κατασκευές, κώδικα και τεκμηρίωση.</div>
+    </div>
+  </footer>
+</body>
+</html>
