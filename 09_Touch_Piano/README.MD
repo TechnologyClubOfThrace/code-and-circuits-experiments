@@ -2,8 +2,8 @@
 
 ## Α. Προεπισκόπηση
 <p align="center">
-  <img src="09_Touch_Piano/images/001.jpg" alt="Touch Piano" width="500px" height="auto">
-  <img src="09_Touch_Piano/images/002.jpg" alt="Touch Piano 2" width="500px" height="auto">
+  <img src="images/001.jpg" alt="Touch Piano" width="500px" height="auto">
+  <img src="images/002.jpg" alt="Touch Piano 2" width="500px" height="auto">
   <br>
   <em>Ολοκληρωμένη κατασκευή στον Σύλλογο Τεχνολογίας Θράκης</em>
   <br>
