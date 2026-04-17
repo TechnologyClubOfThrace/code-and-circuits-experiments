@@ -2,9 +2,9 @@
 
 ## Α. Προεπισκόπηση
 <p align="center">
-  <img src="images/001.jpg" alt="Touch Piano" width="500px" height="auto">
-  <img src="images/002.jpg" alt="Touch Piano 2" width="500px" height="auto">
-  <br>
+<img src="images/002.jpg" alt="Touch Piano 2" width="500px" height="auto">
+ <img src="images/001.jpg" alt="Touch Piano" width="500px" height="auto">  
+<br>
   <em>Ολοκληρωμένη κατασκευή στον Σύλλογο Τεχνολογίας Θράκης</em>
   <br>
   <em>Ομάδα Κατασκευής: Μπορκέλης Γ., Γιάννης Γ., Άρης Τ.</em>
