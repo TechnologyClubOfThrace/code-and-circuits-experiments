@@ -71,7 +71,7 @@
 ## 🎬 Δείτε το σε δράση
 <p align="center">
   <a href="https://www.youtube.com/shorts/n0aPS1Wc2bk">
-    <img src="https://img.youtube.com/vi/n0aPS1Wc2bk/0.jpg" alt="Dino Game Gameplay">
+    <img src="https://img.youtube.com/vi/n0aPS1Wc2bk/0.jpg" alt="Flappy Bird Gameplay">
   </a>
   <br>
   <em>Κάντε κλικ στην εικόνα για να δείτε το βίντεο στο YouTube.</em>
