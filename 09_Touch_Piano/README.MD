@@ -39,12 +39,10 @@
 | **T7(G27))** | la |
 | **T8(G33)** | si |
 
-## 🎬 Δείτε το σε δράση
-<p align="center">
-  <a href="https://www.youtube.com/watch?v=L_dNXdEmtjQ">
-  </a>
-  <br>
- </p>
+## ΣΤ. Παρουσίαση
+
+📺 **Video:** Μπορείτε να δείτε το πιάνο σε λειτουργία εδώ:
+[YouTube - Παρουσίαση ολοκληρωμένης συσκευής](https://www.youtube.com/watch?v=RXw2apjPLxI)
 
 
 https://steth.gr/touch-sensitive-piano/
