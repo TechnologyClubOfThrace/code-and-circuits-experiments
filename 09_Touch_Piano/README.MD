@@ -42,7 +42,7 @@
 ## ΣΤ. Παρουσίαση
 
 📺 **Video:** Μπορείτε να δείτε το πιάνο σε λειτουργία εδώ:
-[YouTube - Παρουσίαση ολοκληρωμένης συσκευής](https://www.youtube.com/watch?v=RXw2apjPLxI)
+[YouTube - Παρουσίαση ολοκληρωμένης συσκευής](https://www.youtube.com/watch?v=L_dNXdEmtjQ)
 
 
 https://steth.gr/touch-sensitive-piano/
