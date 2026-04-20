@@ -56,3 +56,13 @@
 📁 Φάκελος: `07_dino_game_ESP/` — Endless runner τύπου Chrome Dino για ESP με ενσωματωμένη TFT ST7789 και button input, κατάλληλο για εκμάθηση game state λογικής, rendering γραφικών και workflow compile/upload σε ESP32.
 
 ---
+
+### 08 — Gravity Maze
+📁 Φάκελος: `08_Gravity_Maze/` - Λαβύρινθος Βαρύτητας 2 Αξόνων. Mηχανισμός 2 αξόνων (Gimbal) που φιλοξενεί έναν λαβύρινθο. Ο χρήστης ελέγχει την κλίση της πλατφόρμας μέσω ενός Joystick.
+
+---
+
+### 09 - Touch Piano
+📁 Φάκελος: `09_Touch_Piano/' - Το πιανάκι βασίζεται στην αλληλεπίδραση μέσω των capacitive sensors του ESP32, αναδεικνύοντας με διασκεδαστικό τρόπο τις δυνατότητες των microcontrollers.
+
+
