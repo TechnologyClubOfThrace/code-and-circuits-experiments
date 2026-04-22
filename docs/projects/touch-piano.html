@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Touch Piano με ESP32</title>
+  <meta name="description" content="Touch-sensitive piano με ESP32 και capacitive touch πλήκτρα για επτά νότες σε μία οκτάβα." />
+  <link rel="canonical" href="https://technologyclubofthrace.github.io/code-and-circuits-experiments/projects/touch-piano.html" />
+  <meta property="og:locale" content="el_GR" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Arduino Mini Projects" />
+  <meta property="og:title" content="Touch Piano με ESP32" />
+  <meta property="og:description" content="ESP32 πιανάκι με capacitive sensors, αγώγιμες ταινίες και ήχο μίας οκτάβας." />
+  <meta property="og:url" content="https://technologyclubofthrace.github.io/code-and-circuits-experiments/projects/touch-piano.html" />
+  <meta property="og:image" content="https://technologyclubofthrace.github.io/code-and-circuits-experiments/assets/touch-piano-preview.jpg" />
+  <meta property="og:image:alt" content="Preview εικόνα του Touch Piano με ESP32" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Touch Piano με ESP32" />
+  <meta name="twitter:description" content="Διαδραστικό πιανάκι με αισθητήρες αφής ESP32 και αγώγιμες ταινίες ως πλήκτρα." />
+  <meta name="twitter:image" content="https://technologyclubofthrace.github.io/code-and-circuits-experiments/assets/touch-piano-preview.jpg" />
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+  <main>
+    <section class="container page-header">
+      <h1>09. Touch Piano με ESP32</h1>
+      <p class="lead">
+        Μουσικό project με capacitive touch πλήκτρα, όπου το ESP32 ανιχνεύει την αφή
+        και παίζει επτά νότες μέσα από ένα απλό, δημιουργικό interface.
+      </p>
+    </section>
+
+    <section class="container two-col">
+      <div class="content-box">
+        <h2>Περιγραφή</h2>
+        <p>
+          Το Touch Piano αξιοποιεί τις χωρητικές εισόδους του ESP32 ώστε οι νότες να
+          ενεργοποιούνται με άγγιγμα σε αγώγιμες ταινίες. Με αυτόν τον τρόπο, το project
+          συνδυάζει ηλεκτρονική, ήχο και αλληλεπίδραση σε μία πολύ άμεση κατασκευή.
+        </p>
+        <p>
+          Ολοκλήρωση της κατασκευής στον Σύλλογο Τεχνολογίας Θράκης
+        </p>
+        <p>
+          Ομάδα Κατασκευής: Μπορκέλης Γ., Γιάννης Γ., Άρης Τ.
+        </p>
+
+        <h3>Α. Λειτουργίες λογισμικού</h3>
+        <ul>
+          <li>Ανίχνευση αφής μέσω capacitive touch αισθητήρων του ESP32</li>
+          <li>Αναπαραγωγή 7 νοτών που καλύπτουν μία οκτάβα</li>
+          <li>Χρήση αγώγιμων επιφανειών ως πλήκτρα με πολύ απλή κατασκευή</li>
+          <li>Εύκολη προσαρμογή για άλλα αγώγιμα αντικείμενα ή διαδραστικά interfaces</li>
+        </ul>
+
+        <h3>Β. Υλικά</h3>
+        <ul>
+          <li>1x ESP32</li>
+          <li>7x Jumper wires</li>
+          <li>7x Αγώγιμες αυτοκόλλητες ταινίες για πλήκτρα αφής</li>
+          <li>1x Ηχείο ή έξοδος ήχου συνδεδεμένη στο pin 25</li>
+          <li>Τροφοδοσία μέσω USB</li>
+        </ul>
+
+        <h3>Γ. Συνδεσμολογία</h3>
+        <ul>
+          <li>T0 (G4) → Νότα do</li>
+          <li>T3 (G15) → Νότα re</li>
+          <li>T4 (G13) → Νότα mi</li>
+          <li>T5 (G12) → Νότα fa</li>
+          <li>T6 (G14) → Νότα sol</li>
+          <li>T7 (G27) → Νότα la</li>
+          <li>T8 (G33) → Νότα si</li>
+          <li>GND → Γείωση εξόδου ήχου</li>
+          <li>PIN25 → AUX input / έξοδος ήχου</li>
+        </ul>
+
+        <h3>Δ. Εκπαιδευτική αξία</h3>
+        <p>
+          Το project δείχνει πολύ καθαρά πώς μπορούμε να φτιάξουμε διαδραστικές εφαρμογές
+          με capacitive sensing, μετατρέποντας απλά υλικά σε μουσικά πλήκτρα. Είναι ιδανικό
+          για εισαγωγή σε αισθητήρες αφής, φυσικό computing και δημιουργικό προγραμματισμό.
+        </p>
+
+        <h3>Ε. Παρουσίαση</h3>
+        <p>
+          Video λειτουργίας στο YouTube:
+          <a href="https://www.youtube.com/watch?v=L_dNXdEmtjQ">Παρουσίαση ολοκληρωμένης συσκευής</a>
+        </p>
+        <p>
+          Περισσότερες πληροφορίες:
+          <a href="https://steth.gr/touch-sensitive-piano/">Touch Sensitive Piano</a>
+        </p>
+      </div>
+
+      <div class="content-box">
+        <h2>Φωτογραφίες</h2>
+        <img class="preview-image" src="../assets/touch-piano-preview.jpg" alt="Touch Piano με ESP32" />
+        <div class="photo-gallery">
+          <img class="gallery-image" src="../assets/touch-piano-build.jpg" alt="Κατασκευή Touch Piano με ταινίες αφής" />
+        </div>
+      </div>
+    </section>
+
+    <section class="container page-actions">
+      <a class="page-action page-action-secondary" href="../index.html">← Επιστροφή στο portfolio</a>
+      <a class="page-action page-action-primary" href="https://github.com/TechnologyClubOfThrace/code-and-circuits-experiments/tree/main/09_Touch_Piano">Άνοιγμα φακέλου project στο GitHub</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-box">
+      <div>Σύλλογος Τεχνολογίας Θράκης · MakerLab</div>
+      <div>GitHub Pages portfolio για εκπαιδευτικές κατασκευές, κώδικα και τεκμηρίωση.</div>
+    </div>
+  </footer>
+</body>
+</html>

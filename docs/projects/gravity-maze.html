@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gravity Maze 2 Αξόνων</title>
+  <meta name="description" content="Λαβύρινθος βαρύτητας 2 αξόνων με Arduino, joystick και δύο servo motors για ομαλό έλεγχο κλίσης." />
+  <link rel="canonical" href="https://technologyclubofthrace.github.io/code-and-circuits-experiments/projects/gravity-maze.html" />
+  <meta property="og:locale" content="el_GR" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Arduino Mini Projects" />
+  <meta property="og:title" content="Gravity Maze 2 Αξόνων" />
+  <meta property="og:description" content="Arduino κατασκευή λαβύρινθου με joystick, δύο άξονες κίνησης και servo control με smoothing." />
+  <meta property="og:url" content="https://technologyclubofthrace.github.io/code-and-circuits-experiments/projects/gravity-maze.html" />
+  <meta property="og:image" content="https://technologyclubofthrace.github.io/code-and-circuits-experiments/assets/gravity-maze-preview.jpg" />
+  <meta property="og:image:alt" content="Preview εικόνα του Gravity Maze 2 Αξόνων" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Gravity Maze 2 Αξόνων" />
+  <meta name="twitter:description" content="Μηχανισμός λαβύρινθου με joystick, servo motors και Arduino για έλεγχο κλίσης δύο αξόνων." />
+  <meta name="twitter:image" content="https://technologyclubofthrace.github.io/code-and-circuits-experiments/assets/gravity-maze-preview.jpg" />
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+  <main>
+    <section class="container page-header">
+      <h1>08. Gravity Maze 2 Αξόνων</h1>
+      <p class="lead">
+        Διαδραστικός λαβύρινθος με μηχανισμό δύο αξόνων, όπου ο χρήστης χειρίζεται την κλίση
+        της πλατφόρμας με joystick και οδηγεί τη μπίλια με ομαλή, ελεγχόμενη κίνηση.
+      </p>
+    </section>
+
+    <section class="container two-col">
+      <div class="content-box">
+        <h2>Περιγραφή</h2>
+        <p>
+          Το project υλοποιεί ένα gimbal σύστημα δύο αξόνων που στηρίζει έναν χειροποίητο λαβύρινθο.
+          Η πλατφόρμα ελέγχεται από joystick και μεταφράζει την κίνηση του χρήστη σε γωνίες κλίσης
+          μέσω δύο servo motors.
+        </p>
+        <p>
+          Ολοκλήρωση της κατασκευής στον Σύλλογο Τεχνολογίας Θράκης
+        </p>
+        <p>
+          Ομάδα Κατασκευής: Κοσμίδης Θ., Δημήτρης Κ., Γιάννης Γ.
+        </p>
+
+        <h3>Α. Λειτουργίες λογισμικού</h3>
+        <ul>
+          <li>Dynamic easing και slew-rate για πιο φυσική αίσθηση κίνησης</li>
+          <li>Exponential mapping για καλύτερο έλεγχο κοντά στο κέντρο του joystick</li>
+          <li>Low-pass filtering και δειγματοληψία πολλών μετρήσεων για μείωση jitter</li>
+          <li>Αυτόματο calibration του joystick κατά την εκκίνηση</li>
+          <li>Αυτόματο detach των servo μετά από αδράνεια για λιγότερο θόρυβο</li>
+        </ul>
+
+        <h3>Β. Υλικά</h3>
+        <ul>
+          <li>Arduino Nano ή Arduino Uno</li>
+          <li>2x Servo motors, όπως SG90 ή MG90S</li>
+          <li>1x Analog joystick module δύο αξόνων</li>
+          <li>Χοντρό χαρτόνι Kraft 800g/m² για το πλαίσιο και τον λαβύρινθο</li>
+          <li>Jumper wires και τροφοδοσία μέσω USB</li>
+        </ul>
+
+        <h3>Γ. Συνδεσμολογία</h3>
+        <ul>
+          <li>D8 → Signal του Servo X</li>
+          <li>D9 → Signal του Servo Y</li>
+          <li>A0 → VRx του joystick</li>
+          <li>A1 → VRy του joystick</li>
+          <li>5V → VCC τροφοδοσίας</li>
+          <li>GND → Κοινή γείωση συστήματος</li>
+        </ul>
+
+        <h3>Δ. Οδηγίες χρήσης</h3>
+        <ul>
+          <li>Κατά την εκκίνηση αφήστε το joystick στο κέντρο για σωστό calibration</li>
+          <li>Η πλατφόρμα ακολουθεί την κίνηση του joystick με μέγιστη κλίση περίπου ±20°</li>
+          <li>Μετά από 2 δευτερόλεπτα ακινησίας τα servo απενεργοποιούνται προσωρινά</li>
+        </ul>
+
+        <h3>Ε. Εκπαιδευτική αξία</h3>
+        <p>
+          Η κατασκευή είναι πολύ καλή εισαγωγή σε motion control, αναλογικές εισόδους,
+          φιλτράρισμα σήματος και μετατροπή δεδομένων αισθητήρων σε φυσική κίνηση με
+          πιο ποιοτική εμπειρία χειρισμού.
+        </p>
+
+        <h3>ΣΤ. Credits</h3>
+        <p>
+          Η αρχική ιδέα βασίστηκε στο
+          <a href="https://www.instructables.com/Arduino-Marble-Maze-Labyrinth/">Arduino Marble Maze Labyrinth</a>
+          του Ahmed Azouz, ενώ ο επανασχεδιασμός του κώδικα και η βελτίωση της κατασκευής
+          έγιναν από την ομάδα του Συλλόγου Τεχνολογίας Θράκης.
+        </p>
+      </div>
+
+      <div class="content-box">
+        <h2>Φωτογραφίες</h2>
+        <img class="preview-image" src="../assets/gravity-maze-preview.jpg" alt="Gravity Maze 2 Αξόνων" />
+        <div class="photo-gallery">
+          <img class="gallery-image" src="../assets/gravity-maze-build-01.jpg" alt="Κατασκευή λαβύρινθου με joystick και servo" />
+          <img class="gallery-image" src="../assets/gravity-maze-build-02.jpg" alt="Πλήρης κατασκευή Gravity Maze" />
+        </div>
+      </div>
+    </section>
+
+    <section class="container page-actions">
+      <a class="page-action page-action-secondary" href="../index.html">← Επιστροφή στο portfolio</a>
+      <a class="page-action page-action-primary" href="https://github.com/TechnologyClubOfThrace/code-and-circuits-experiments/tree/main/08_Gravity_Maze">Άνοιγμα φακέλου project στο GitHub</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-box">
+      <div>Σύλλογος Τεχνολογίας Θράκης · MakerLab</div>
+      <div>GitHub Pages portfolio για εκπαιδευτικές κατασκευές, κώδικα και τεκμηρίωση.</div>
+    </div>
+  </footer>
+</body>
+</html>
