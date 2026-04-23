@@ -30,7 +30,10 @@ void setup() {
     while (1);
   }
 
-  LoRa.setTxPower(10);
+  LoRa.setTxPower(10); // 10 dBm ≈ 10 mW (αντί για 20dbm)
+  LoRa.setSignalBandwidth(125E3); // Bandwidth 125 kHz 
+  LoRa.setSpreadingFactor(7); // Duty cycle  - SF7 125kHz  --> ~50–100 ms
+
   
 }
 
@@ -59,5 +62,5 @@ void loop() {
 
   counter++;
 
-  delay(5000);
+  delay(10000);
 }
