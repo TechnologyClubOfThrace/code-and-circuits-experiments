@@ -4,4 +4,4 @@
 
 _Code and Circuits Experiments_  
 Σύλλογος Τεχνολογίας Θράκης · MakerLab  
-Απλές επεξηγήσεις, πραγματικά projects και υλικό για αρχάριους.
+Απλές επεξηγήσεις, πραγματικά projects και υλικό του MakerLab.
