@@ -491,6 +491,28 @@ main {
   background: var(--surface-2);
 }
 
+.project-label-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 50px;
+  margin-top: 18px;
+  padding: 12px 18px;
+  border-radius: 18px;
+  font-weight: 800;
+  text-align: center;
+  color: var(--accent-dark);
+  background: linear-gradient(135deg, rgba(27, 109, 224, 0.1), rgba(15, 141, 131, 0.08));
+  border: 1px solid rgba(27, 109, 224, 0.18);
+  box-shadow: var(--shadow-soft);
+}
+
+.project-label-link:hover {
+  color: var(--accent-dark);
+  transform: translateY(-1px);
+}
+
 .two-col {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
