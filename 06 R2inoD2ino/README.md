@@ -75,11 +75,52 @@
 
 ---
 
-## Ζ. Εκπαιδευτικοί Στόχοι & Roadmap
+## Ζ. 🔌 Καλωδίωση / Pinmap
 
-* **Serial Execution:** Κατανόηση των περιορισμών του σειριακού τρόπου εκτέλεσης δράσεων `delay()`.
-* **Εισαγωγή στην Millis:** Την χρησιμοποιούμε για το IDLE MODE `millis()`.
-* **Next Step:** Πλήρης ανακατασκευή του κώδικα με χρήση `millis()` (non-blocking code) για ταυτόχρονη κίνηση και ομιλία.
+### 📋 Συνοπτικός Πίνακας
+
+| Component        | Pin / Σήμα | Arduino | Σχόλιο |
+|------------------|-----------|---------|--------|
+| LED              | +         | D13     | |
+| LED              | −         | GND     | με αντίσταση 220–330Ω |
+| Servo            | Signal    | D6      | |
+| Servo            | VCC       | 5V      | |
+| Servo            | GND       | GND     | |
+| Voice Sensor     | D/T       | SDA (A4)| |
+| Voice Sensor     | C/R       | SCL (A5)| |
+| Voice Sensor     | VCC       | 5V      | |
+| Voice Sensor     | GND       | GND     | |
+| DFPlayer         | RX        | D11     | μέσω ~1kΩ |
+| DFPlayer         | TX        | D10     | μέσω ~1kΩ |
+| DFPlayer         | VCC       | 5V      | |
+| DFPlayer         | GND       | GND     | |
+| DFPlayer         | SPK1      | Speaker | |
+| DFPlayer         | SPK2      | Speaker | |
 
 ---
-*Σημείωση: Περισσότερες λεπτομέρειες για το κύκλωμα θα προστεθούν σύντομα.*
+
+### 🔋 Τροφοδοσία (από 5V Powerbank 2A)
+
+| Σύνδεση | Περιγραφή |
+|--------|----------|
+| +5V → SERVO PWR (+) | πράσινη κλέμα στο shield |
+| ↳ +5V → Arduino USB | επέκταση ίδιας γραμμής (με κόλληση) |
+| GND → SERVO PWR (−) | κοινή γείωση |
+
+---
+
+### ⚡ Σημειώσεις
+- Όλα τα components μοιράζονται **κοινό GND** από το D rail του shield
+- Όλα τα components τροφοδοτούνται από το ίδιο **VCC (5V rail)** από το D rail του shield
+- ⚠️ Προσοχή: αν δοθεί τροφοδοσία μόνο στο SERVO PWR, τροφοδοτείται **μόνο το D rail** (όχι το Arduino)
+- Το shield 7.1 της DF διαθέτει D rail με κοινό VCC και GND — ιδανικό για τριπλέτες (π.χ. servo)
+
+---
+
+## Η. Εκπαιδευτικοί Στόχοι & Roadmap
+
+* **Serial Execution:** Κατανόηση των περιορισμών του σειριακού τρόπου εκτέλεσης (`delay()`).
+* **Εισαγωγή στη `millis()`:** Χρήση της για υλοποίηση IDLE MODE χωρίς blocking.
+* **Next Step:** Ανακατασκευή του κώδικα με `millis()` (non-blocking) για ταυτόχρονη κίνηση και αναπαραγωγή ήχου.
+
+---
