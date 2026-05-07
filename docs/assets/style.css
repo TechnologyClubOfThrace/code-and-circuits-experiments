@@ -235,6 +235,10 @@ main {
   box-shadow: var(--shadow);
 }
 
+.team-space-banner {
+  margin-top: 28px;
+}
+
 .donation-banner h2 {
   max-width: 760px;
   margin: 8px 0 10px;

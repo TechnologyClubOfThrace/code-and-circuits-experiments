@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Slide Show Stream με Arduino Uno</title>
+  <meta name="description" content="Arduino Uno slideshow σε TFT οθόνη με SD card και low-level BMP streaming για προβολή εικόνων με ελάχιστη χρήση RAM." />
+  <link rel="canonical" href="https://technologyclubofthrace.github.io/code-and-circuits-experiments/projects/slide-show-stream.html" />
+  <meta property="og:locale" content="el_GR" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Arduino Mini Projects" />
+  <meta property="og:title" content="Slide Show Stream με Arduino Uno" />
+  <meta property="og:description" content="TFT slideshow που διαβάζει BMP εικόνες απευθείας από SD card με low-level streaming και μετατροπή χρώματος σε 16-bit 565 format." />
+  <meta property="og:url" content="https://technologyclubofthrace.github.io/code-and-circuits-experiments/projects/slide-show-stream.html" />
+  <meta property="og:image" content="https://technologyclubofthrace.github.io/code-and-circuits-experiments/assets/slide-show-stream-preview.jpg" />
+  <meta property="og:image:alt" content="Preview εικόνα του Slide Show Stream με Arduino Uno" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Slide Show Stream με Arduino Uno" />
+  <meta name="twitter:description" content="Arduino Uno project για προβολή BMP εικόνων από SD card σε TFT οθόνη με χαμηλή χρήση μνήμης." />
+  <meta name="twitter:image" content="https://technologyclubofthrace.github.io/code-and-circuits-experiments/assets/slide-show-stream-preview.jpg" />
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+  <main>
+    <section class="container page-header">
+      <h1>10. Slide Show Stream</h1>
+      <p class="lead">
+        Arduino Uno project που προβάλλει διαδοχικά BMP εικόνες σε TFT οθόνη, διαβάζοντάς τες απευθείας από SD card
+        με low-level streaming ώστε να περιορίζεται η χρήση της RAM.
+      </p>
+    </section>
+
+    <section class="container two-col">
+      <div class="content-box">
+        <h2>Περιγραφή</h2>
+        <p>
+          Το Slide Show Stream υλοποιεί ένα δυναμικό slideshow σε οθόνη ST7735 128x160 με υποδοχή SD.
+          Ο κώδικας δεν φορτώνει ολόκληρη την εικόνα στη μνήμη, αλλά διαβάζει το BMP αρχείο pixel προς pixel
+          και σχεδιάζει απευθείας στην οθόνη.
+        </p>
+        <p>
+          Το πρόγραμμα αναζητά αρχεία με ονομασίες όπως <code>001.BMP</code>, <code>002.BMP</code> κ.λπ. στην SD card,
+          αναλύει το header κάθε εικόνας, βρίσκει τις διαστάσεις και το pixel offset, μετατρέπει το χρώμα από 24-bit RGB
+          σε 16-bit 565 format και το στέλνει στην TFT.
+        </p>
+        <p>
+          Ολοκλήρωση της κατασκευής στον Σύλλογο Τεχνολογίας Θράκης.
+        </p>
+        <p>
+          Ομάδα Κατασκευής: Άρης Τ., Δημήτρης Κ., Γιάννης Γ.
+        </p>
+
+        <h3>Α. Λειτουργίες λογισμικού</h3>
+        <ul>
+          <li>Ανάγνωση BMP αρχείων απευθείας από SD card</li>
+          <li>Έλεγχος BMP header και εξαγωγή διαστάσεων εικόνας</li>
+          <li>Low-level streaming των δεδομένων εικόνας χωρίς πλήρη φόρτωση στη RAM</li>
+          <li>Μετατροπή χρώματος από 24-bit RGB σε 16-bit 565 format</li>
+          <li>Αυτόματη μετάβαση στην επόμενη εικόνα με μικρή καθυστέρηση</li>
+        </ul>
+
+        <h3>Β. Υλικά</h3>
+        <ul>
+          <li>1x Arduino Uno</li>
+          <li>1x ST7735 128x160 TFT display με υποδοχή SD</li>
+          <li>1x SD card έως 2GB, σε FAT16 ή FAT32</li>
+          <li>1x Breadboard</li>
+          <li>Περίπου 15x jumper wires</li>
+          <li>Τροφοδοσία μέσω USB</li>
+        </ul>
+
+        <h3>Γ. Συνδεσμολογία</h3>
+        <ul>
+          <li>D11 → SDA της TFT και SD_MOSI</li>
+          <li>D12 → SD_MISO</li>
+          <li>D13 → SCK της TFT και SD_SCK</li>
+          <li>D10 → CS της TFT</li>
+          <li>D4 → SD_CS</li>
+          <li>D9 → A0 / DC</li>
+          <li>D8 → RESET</li>
+          <li>5V → VCC και LED backlight</li>
+          <li>GND → κοινή γείωση</li>
+        </ul>
+
+        <h3>Δ. Σημειώσεις</h3>
+        <ul>
+          <li>Οι εικόνες πρέπει να είναι αποθηκευμένες ως 24-bit BMP.</li>
+          <li>Το pin LED της οθόνης πρέπει να συνδεθεί στα 5V, αλλιώς η οθόνη θα φαίνεται μαύρη.</li>
+          <li>Για μεγάλες SDHC κάρτες μπορεί να χρειαστεί διαφορετική βιβλιοθήκη, όπως η <code>SdFat.h</code>.</li>
+        </ul>
+
+        <h3>Ε. Εκπαιδευτική αξία</h3>
+        <p>
+          Η κατασκευή είναι καλή εισαγωγή στη διαχείριση αρχείων, στα binary headers, στα χρωματικά μοντέλα
+          και στη διαχείριση μνήμης σε μικροελεγκτές. Οι μαθητές βλέπουν πώς μια εικόνα μπορεί να επεξεργάζεται
+          ως ροή δεδομένων, χωρίς να χρειάζεται να χωρέσει ολόκληρη στη RAM του Arduino.
+        </p>
+      </div>
+
+      <div class="content-box">
+        <h2>Φωτογραφίες</h2>
+        <img class="preview-image" src="../assets/slide-show-stream-preview.jpg" alt="Slide Show Stream με Arduino Uno" />
+      </div>
+    </section>
+
+    <section class="container page-actions">
+      <a class="page-action page-action-secondary" href="../index.html">← Επιστροφή στο portfolio</a>
+      <a class="page-action page-action-primary" href="https://github.com/TechnologyClubOfThrace/code-and-circuits-experiments/tree/main/10_Slide_Show_Stream">Άνοιγμα φακέλου project στο GitHub</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-box">
+      <div>Σύλλογος Τεχνολογίας Θράκης · MakerLab</div>
+      <div>GitHub Pages portfolio για εκπαιδευτικές κατασκευές, κώδικα και τεκμηρίωση.</div>
+    </div>
+  </footer>
+</body>
+</html>
