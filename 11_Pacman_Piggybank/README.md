@@ -86,9 +86,9 @@
 > [!NOTE]
 > **3D Assets & Printables**
 > Στον υποφάκελο [`/print`](./print/) θα βρείτε τα απαραίτητα αρχεία για την ολοκλήρωση της κατασκευής:
-> * [**Control Horn (STL)**](./print/control_horn.stl): Ειδικά σχεδιασμένο για την καμπυλότητα της σφαίρας (R=10cm).
-> * [**Servo Support (STL)**](./print/servo_support.stl): Βάση στήριξης για τον SG90.
-> * [**Pacman Eyes (JPG)**](./print/eyes.jpg): Πρότυπο για εκτύπωση των ματιών σε απλό χαρτί Α4 (διάφορα μεγέθη).
+> * [**Control Horn (STL)**](./print/ControlHorn_10cmRadiusSphereSurface.stl): Ειδικά σχεδιασμένο για την καμπυλότητα της σφαίρας (R=10cm).
+> * [**Servo Support (STL)**](./print/pacman_servo_support.stl): Βάση στήριξης για τον SG90.
+> * [**Pacman Eyes (JPG)**](./print/pacmanEyes.jpg): Πρότυπο για εκτύπωση των ματιών σε απλό χαρτί Α4 (διάφορα μεγέθη).
 
 > [!WARNING]
 > **Προσοχή στα Υλικά!**
