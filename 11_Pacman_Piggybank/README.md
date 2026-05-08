@@ -32,7 +32,7 @@
 * **Arduino Nano**
 * **Ultrasonic Sensor (HC-SR04)**
 * **Servo Motor (SG90)**
-* **Jumper Wires** (Dupont)
+* **Jumper Wires** (Dupont Cables)
 * **🔋 Τροφοδοσία:** Μέσω USB ή εξωτερική πηγή 5V.
 
 ### Υλικά Κατασκευής
@@ -72,9 +72,9 @@
 > [!NOTE]
 > **Upcoming Updates**
 > Σύντομα θα προστεθούν στο αποθετήριο τα **STL αρχεία** για:
-> * Τα κέρατα (horns).
+> * Τα servo horns.
 > * Το πλαίσιο σταθεροποίησης του servo.
-> * Τα αρχεία για τα μάτια.
+> * Τα αρχεία για τα μάτια (Απλή Α4).
 
 ---
 
