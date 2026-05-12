@@ -65,4 +65,14 @@
 ### 09 - Touch Piano
 📁 Φάκελος: `09_Touch_Piano/` - Το πιανάκι βασίζεται στην αλληλεπίδραση μέσω των capacitive sensors του ESP32, αναδεικνύοντας με διασκεδαστικό τρόπο τις δυνατότητες των microcontrollers.
 
+---
+
+### 10 — Slide Show Stream
+📁 Φάκελος: `10_Slide_Show_Stream/` — Arduino Uno slideshow σε TFT οθόνη ST7735 με SD card, που διαβάζει BMP εικόνες απευθείας από την κάρτα με low-level streaming και ελάχιστη χρήση RAM.
+
+---
+
+### 11 — Pacman Piggy Bank
+📁 Φάκελος: `11_Pacman_Piggybank/` — Διαδραστικός κουμπαράς Pacman με Arduino Nano, αισθητήρα υπερήχων HC-SR04 και servo motor που ανοίγει αυτόματα το στόμα όταν κάποιος πλησιάζει.
+
 

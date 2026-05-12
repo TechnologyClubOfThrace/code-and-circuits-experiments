@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pacman Piggy Bank με Arduino Nano</title>
+  <meta name="description" content="Διαδραστικός κουμπαράς Pacman με Arduino Nano, αισθητήρα υπερήχων HC-SR04 και servo motor που ανοίγει αυτόματα το στόμα όταν πλησιάζει αντικείμενο." />
+  <link rel="canonical" href="https://technologyclubofthrace.github.io/code-and-circuits-experiments/projects/pacman-piggybank.html" />
+  <meta property="og:locale" content="el_GR" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Arduino Mini Projects" />
+  <meta property="og:title" content="Pacman Piggy Bank με Arduino Nano" />
+  <meta property="og:description" content="Arduino Nano project που συνδυάζει αισθητήρα υπερήχων, servo motor και χειροποίητη μηχανική κατασκευή για έναν Pacman κουμπαρά που ζωντανεύει." />
+  <meta property="og:url" content="https://technologyclubofthrace.github.io/code-and-circuits-experiments/projects/pacman-piggybank.html" />
+  <meta property="og:image" content="https://technologyclubofthrace.github.io/code-and-circuits-experiments/assets/pacman-piggybank-preview.jpg" />
+  <meta property="og:image:alt" content="Preview εικόνα του Pacman Piggy Bank με Arduino Nano" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pacman Piggy Bank με Arduino Nano" />
+  <meta name="twitter:description" content="Διαδραστικός κουμπαράς Pacman με ultrasonic sensor, servo motor και Arduino Nano." />
+  <meta name="twitter:image" content="https://technologyclubofthrace.github.io/code-and-circuits-experiments/assets/pacman-piggybank-preview.jpg" />
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+  <main>
+    <section class="container page-header">
+      <h1>11. Pacman Piggy Bank</h1>
+      <p class="lead">
+        Διαδραστικός κουμπαράς Pacman με Arduino Nano, αισθητήρα υπερήχων και servo motor.
+        Όταν κάποιος πλησιάζει, το στόμα ανοίγει αυτόματα για λίγα δευτερόλεπτα και μετά κλείνει ξανά.
+      </p>
+    </section>
+
+    <section class="container two-col">
+      <div class="content-box">
+        <h2>Περιγραφή</h2>
+        <p>
+          Το project δημιουργεί έναν χειροποίητο κουμπαρά Pacman που "ζωντανεύει" όταν ανιχνεύσει προσέγγιση.
+          Ένας αισθητήρας υπερήχων HC-SR04 μετρά την απόσταση και, όταν εντοπίσει αντικείμενο σε απόσταση μικρότερη
+          των 50cm, ενεργοποιεί ένα servo motor που ανοίγει το στόμα του Pacman.
+        </p>
+        <p>
+          Το στόμα παραμένει ανοιχτό για περίπου 2.5 δευτερόλεπτα μετά την απομάκρυνση του αντικειμένου και στη συνέχεια
+          κλείνει. Το κεφάλι έχει κατασκευαστεί από μπάλα φελιζόλ, χαρτί χειροτεχνίας και μηχανισμό με μεντεσέ,
+          ενώ η βάση στήριξης του servo και ο ειδικός βραχίονας ολοκληρώνουν τη μηχανική κίνηση.
+        </p>
+        <p>
+          Ολοκλήρωση της κατασκευής στον Σύλλογο Τεχνολογίας Θράκης.
+        </p>
+        <p>
+          Ομάδα Κατασκευής: Άρης Τ., Γιάννης Γ., Γιάννης Μ., Τάσος Δ.
+        </p>
+
+        <h3>Α. Λειτουργίες λογισμικού</h3>
+        <ul>
+          <li>Ανίχνευση προσέγγισης με ultrasonic sensor HC-SR04</li>
+          <li>Ενεργοποίηση σε απόσταση μικρότερη από 50cm</li>
+          <li>Έλεγχος servo motor με τη βιβλιοθήκη <code>Servo.h</code></li>
+          <li>Άνοιγμα στόματος στις 170° και κλείσιμο στις 10°</li>
+          <li>Χρονισμός με διάστημα αναμονής 2500ms και μετρήσεις κάθε 400ms</li>
+        </ul>
+
+        <h3>Β. Υλικά</h3>
+        <ul>
+          <li>1x Arduino Nano</li>
+          <li>1x Ultrasonic Sensor HC-SR04</li>
+          <li>1x Servo Motor SG90</li>
+          <li>Jumper wires Dupont</li>
+          <li>Τροφοδοσία μέσω USB ή εξωτερική πηγή 5V</li>
+          <li>1x μπάλα φελιζόλ, περίπου 20cm διάμετρο</li>
+          <li>2x φύλλα χοντρό χαρτί craft A4 για το εσωτερικό του στόματος</li>
+          <li>1x μικρός μεταλλικός μεντεσές, καρφάκια, συνδετήρες, κόλλα χειροτεχνίας και θερμόκολλα</li>
+        </ul>
+
+        <h3>Γ. Συνδεσμολογία</h3>
+        <ul>
+          <li>HC-SR04 VCC → 5V</li>
+          <li>HC-SR04 GND → GND</li>
+          <li>HC-SR04 TRIG → D9</li>
+          <li>HC-SR04 ECHO → D10</li>
+          <li>Servo Signal → D6</li>
+          <li>Servo VCC → 5V</li>
+          <li>Servo GND → GND</li>
+        </ul>
+
+        <h3>Δ. Οδηγίες χρήσης</h3>
+        <ul>
+          <li>Πραγματοποιήστε τη συνδεσμολογία σύμφωνα με τα pins του project.</li>
+          <li>Ανοίξτε το sketch του project στο Arduino IDE.</li>
+          <li>Επιλέξτε board Arduino Nano με processor ATmega328P.</li>
+          <li>Κάντε upload τον κώδικα και ανοίξτε το Serial Monitor στα 9600 baud για να δείτε τις μετρήσεις απόστασης.</li>
+          <li>Ρυθμίστε μηχανικά τη θέση του servo ώστε το στόμα να ανοίγει και να κλείνει χωρίς να ζορίζεται.</li>
+        </ul>
+
+        <h3>Ε. Printables και μηχανική ρύθμιση</h3>
+        <p>
+          Στον φάκελο <code>print</code> υπάρχουν τα αρχεία για το control horn, τη βάση στήριξης του SG90 και τα μάτια
+          του Pacman. Ο μηχανισμός χρειάζεται δοκιμή πριν τη μόνιμη στερέωση, ώστε το servo να καλύπτει σωστά όλο
+          το εύρος κίνησης.
+        </p>
+        <p>
+          Προσοχή στα υλικά: το φελιζόλ δεν πρέπει να βαφτεί απευθείας με spray και δεν πρέπει να χρησιμοποιηθεί
+          ισχυρή κόλλα στιγμής, γιατί οι διαλύτες μπορούν να καταστρέψουν την επιφάνειά του.
+        </p>
+
+        <h3>ΣΤ. Εκπαιδευτική αξία</h3>
+        <p>
+          Η κατασκευή συνδυάζει physical computing και μηχανική. Οι μαθητές γνωρίζουν τη μέτρηση απόστασης με υπερήχους,
+          τον έλεγχο servo με PWM, τη χρήση χρονισμών στον κώδικα και τη μετατροπή περιστροφικής κίνησης σε κίνηση
+          μοχλού για το άνοιγμα του στόματος.
+        </p>
+      </div>
+
+      <div class="content-box">
+        <h2>Φωτογραφίες</h2>
+        <img class="preview-image" src="../assets/pacman-piggybank-preview.jpg" alt="Pacman Piggy Bank με Arduino Nano" />
+        <div class="photo-gallery">
+          <img class="gallery-image" src="../assets/pacman-piggybank-side.jpg" alt="Πλάγια όψη του Pacman Piggy Bank" />
+          <img class="gallery-image" src="../assets/pacman-piggybank-build-01.jpg" alt="Κατασκευή κεφαλιού Pacman" />
+          <img class="gallery-image" src="../assets/pacman-piggybank-build-02.jpg" alt="Μηχανισμός στόματος Pacman" />
+          <img class="gallery-image" src="../assets/pacman-piggybank-build-03.jpg" alt="Λεπτομέρεια κατασκευής Pacman Piggy Bank" />
+        </div>
+        <a class="project-label-link" href="../labels/11.png" target="_blank" rel="noopener noreferrer">Προβολή ετικέτας project</a>
+      </div>
+    </section>
+
+    <section class="container page-actions">
+      <a class="page-action page-action-secondary" href="../index.html">← Επιστροφή στο portfolio</a>
+      <a class="page-action page-action-primary" href="https://github.com/TechnologyClubOfThrace/code-and-circuits-experiments/tree/main/11_Pacman_Piggybank">Άνοιγμα φακέλου project στο GitHub</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-box">
+      <div>Σύλλογος Τεχνολογίας Θράκης · MakerLab</div>
+      <div>GitHub Pages portfolio για εκπαιδευτικές κατασκευές, κώδικα και τεκμηρίωση.</div>
+    </div>
+  </footer>
+</body>
+</html>
