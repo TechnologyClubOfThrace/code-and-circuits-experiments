@@ -128,6 +128,15 @@ esp_deep_sleep_start();
 Το ESP32 ενεργοποιείται μόνο για λίγα δευτερόλεπτα, πραγματοποιεί μέτρηση και αποστολή δεδομένων και στη συνέχεια επιστρέφει σε κατάσταση χαμηλής κατανάλωσης.
 
 ---
+## I. Παρουσίαση
+
+📺 **Video:** Μπορείτε να δείτε τη συσκευή σε λειτουργία εδώ:
+[YouTube - Παρουσίαση ολοκληρωμένης συσκευής](https://youtu.be/2kY7o-24hKY?si=3yvqq3QS0sP1Kt6c)
+
+📺 **Dashboard:** Δείτε το Dashboard στο thingspeak με τις real time τιμές:
+[Real Time Dashboard](https://youtu.be/2kY7o-24hKY?si=3yvqq3QS0sP1Kt6c)
+
+---
 
 ## Technology Club of Thrace
 
