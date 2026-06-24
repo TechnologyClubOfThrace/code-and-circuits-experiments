@@ -134,7 +134,7 @@ esp_deep_sleep_start();
 [YouTube - Παρουσίαση ολοκληρωμένης συσκευής](https://youtu.be/2kY7o-24hKY?si=3yvqq3QS0sP1Kt6c)
 
 📺 **Dashboard:** Δείτε το Dashboard στο thingspeak με τις real time τιμές:
-[Real Time Dashboard](https://youtu.be/2kY7o-24hKY?si=3yvqq3QS0sP1Kt6c)
+[Real Time Dashboard](https://thingspeak.mathworks.com/channels/3411713)
 
 ---
 
