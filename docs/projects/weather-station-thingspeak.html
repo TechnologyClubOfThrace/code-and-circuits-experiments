@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ESP Mini Weather Station ThingSpeak</title>
+  <meta name="description" content="ESP32-C3 Super Mini weather station με BME280, WiFi αποστολή δεδομένων στο ThingSpeak και Deep Sleep για χαμηλή κατανάλωση." />
+  <link rel="canonical" href="https://technologyclubofthrace.github.io/code-and-circuits-experiments/projects/weather-station-thingspeak.html" />
+  <meta property="og:locale" content="el_GR" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Arduino Mini Projects" />
+  <meta property="og:title" content="ESP Mini Weather Station ThingSpeak" />
+  <meta property="og:description" content="IoT μετεωρολογικός σταθμός με ESP32-C3 Super Mini, BME280, ThingSpeak dashboard και Deep Sleep." />
+  <meta property="og:url" content="https://technologyclubofthrace.github.io/code-and-circuits-experiments/projects/weather-station-thingspeak.html" />
+  <meta property="og:image" content="https://technologyclubofthrace.github.io/code-and-circuits-experiments/assets/weather-station-thingspeak-preview.jpg" />
+  <meta property="og:image:alt" content="Preview εικόνα του ESP Mini Weather Station ThingSpeak" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ESP Mini Weather Station ThingSpeak" />
+  <meta name="twitter:description" content="ESP32-C3 και BME280 στέλνουν θερμοκρασία, υγρασία και πίεση στο ThingSpeak." />
+  <meta name="twitter:image" content="https://technologyclubofthrace.github.io/code-and-circuits-experiments/assets/weather-station-thingspeak-preview.jpg" />
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+  <main>
+    <section class="container page-header">
+      <h1>12. ESP Mini Weather Station ThingSpeak</h1>
+      <p class="lead">
+        Μικρός IoT μετεωρολογικός σταθμός με ESP32-C3 Super Mini και αισθητήρα BME280, που στέλνει μετρήσεις
+        θερμοκρασίας, υγρασίας και ατμοσφαιρικής πίεσης στο ThingSpeak.
+      </p>
+    </section>
+
+    <section class="container two-col">
+      <div class="content-box">
+        <h2>Περιγραφή</h2>
+        <p>
+          Το project χρησιμοποιεί ένα ESP32-C3 Super Mini και έναν BME280 για να μετρά θερμοκρασία, υγρασία
+          και ατμοσφαιρική πίεση. Τα δεδομένα αποστέλλονται μέσω WiFi στο ThingSpeak, όπου αποθηκεύονται και
+          προβάλλονται σε γραφήματα και dashboard widgets.
+        </p>
+        <p>
+          Μετά από κάθε αποστολή δεδομένων, το ESP32 μπαίνει σε Deep Sleep για 15 δευτερόλεπτα. Έτσι το κύκλωμα
+          ενεργοποιείται μόνο για τη μέτρηση και την αποστολή, μειώνοντας την κατανάλωση ενέργειας.
+        </p>
+        <p>
+          Ολοκλήρωση της κατασκευής στον Σύλλογο Τεχνολογίας Θράκης.
+        </p>
+        <p>
+          Ομάδα Κατασκευής: Άρης Τ., Γιάννης Γ.
+        </p>
+
+        <h3>Α. Λειτουργίες λογισμικού</h3>
+        <ul>
+          <li>Ανάγνωση θερμοκρασίας, υγρασίας και πίεσης από αισθητήρα BME280</li>
+          <li>Σύνδεση σε WiFi με ESP32-C3 Super Mini</li>
+          <li>Αποστολή δεδομένων στο ThingSpeak με HTTP request</li>
+          <li>Χρήση τριών ThingSpeak fields για temperature, humidity και pressure</li>
+          <li>Deep Sleep για 15 δευτερόλεπτα ανάμεσα στις μετρήσεις</li>
+        </ul>
+
+        <h3>Β. Υλικά</h3>
+        <ul>
+          <li>1x ESP32-C3 Super Mini</li>
+          <li>1x BME280 Sensor</li>
+          <li>4x Jumper wires</li>
+          <li>1x USB cable για τροφοδοσία και upload</li>
+        </ul>
+
+        <h3>Γ. Συνδεσμολογία</h3>
+        <ul>
+          <li>BME280 VCC → 3.3V</li>
+          <li>BME280 GND → GND</li>
+          <li>BME280 SDA → GPIO4</li>
+          <li>BME280 SCL → GPIO5</li>
+        </ul>
+
+        <h3>Δ. Βιβλιοθήκες</h3>
+        <ul>
+          <li>Adafruit BME280 Library</li>
+          <li>Adafruit Unified Sensor</li>
+          <li><code>WiFi.h</code>, <code>HTTPClient.h</code>, <code>Wire.h</code></li>
+          <li><code>Adafruit_Sensor.h</code> και <code>Adafruit_BME280.h</code></li>
+        </ul>
+
+        <h3>Ε. Ρύθμιση ThingSpeak</h3>
+        <p>
+          Στο ThingSpeak δημιουργείται ένα channel με τρία fields: Field 1 για temperature, Field 2 για humidity
+          και Field 3 για pressure. Στον κώδικα συμπληρώνονται το WiFi SSID, το password και το Write API Key
+          του channel.
+        </p>
+        <p>
+          Μπορείτε να δείτε το δημόσιο dashboard του project στο
+          <a href="https://thingspeak.mathworks.com/channels/3411713" target="_blank" rel="noopener noreferrer">ThingSpeak</a>
+          και την παρουσίαση της συσκευής στο
+          <a href="https://youtu.be/2kY7o-24hKY?si=3yvqq3QS0sP1Kt6c" target="_blank" rel="noopener noreferrer">YouTube</a>.
+        </p>
+
+        <h3>ΣΤ. Τρόπος λειτουργίας</h3>
+        <ul>
+          <li>Το ESP32 ξεκινά και διαβάζει τις μετρήσεις από τον BME280.</li>
+          <li>Συνδέεται στο WiFi και στέλνει τις τιμές στο ThingSpeak.</li>
+          <li>Αποσυνδέεται από το WiFi για εξοικονόμηση ενέργειας.</li>
+          <li>Μπαίνει σε Deep Sleep και επανεκκινεί για την επόμενη μέτρηση.</li>
+        </ul>
+
+        <h3>Ζ. Εκπαιδευτική αξία</h3>
+        <p>
+          Η κατασκευή είναι καλή εισαγωγή στο IoT, στα cloud dashboards και στη χαμηλή κατανάλωση ενέργειας.
+          Οι μαθητές συνδέουν έναν I2C αισθητήρα, στέλνουν πραγματικά δεδομένα σε online υπηρεσία και βλέπουν
+          πώς ένα embedded σύστημα μπορεί να λειτουργεί περιοδικά με Deep Sleep.
+        </p>
+      </div>
+
+      <div class="content-box">
+        <h2>Φωτογραφίες</h2>
+        <img class="preview-image" src="../assets/weather-station-thingspeak-preview.jpg" alt="ESP Mini Weather Station ThingSpeak κύκλωμα" />
+        <div class="photo-gallery">
+          <img class="gallery-image" src="../assets/weather-station-thingspeak-dashboard.png" alt="ThingSpeak dashboard με μετρήσεις weather station" />
+        </div>
+      </div>
+    </section>
+
+    <section class="container page-actions">
+      <a class="page-action page-action-secondary" href="../index.html">← Επιστροφή στο portfolio</a>
+      <a class="page-action page-action-primary" href="https://github.com/TechnologyClubOfThrace/code-and-circuits-experiments/tree/main/12_mini_weather_station_thingspeak">Άνοιγμα φακέλου project στο GitHub</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-box">
+      <div>Σύλλογος Τεχνολογίας Θράκης · MakerLab</div>
+      <div>GitHub Pages portfolio για εκπαιδευτικές κατασκευές, κώδικα και τεκμηρίωση.</div>
+    </div>
+  </footer>
+</body>
+</html>
